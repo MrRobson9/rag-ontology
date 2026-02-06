@@ -1,0 +1,23 @@
+PREFIX : <http://purl.org/rag-onto#>
+
+SELECT DISTINCT
+  ?answer
+  ?finding
+  ?ctx
+  (STR(?answer)  AS ?answer_str)
+  (STR(?finding) AS ?finding_str)
+WHERE {
+  # (1) A resposta tem um achado (finding) associado
+  ?answer a :GeneratedAnswer ;
+          :hasFinding ?finding .
+
+  # (2) O achado é "sobre" um contexto recuperado (rastreabilidade)
+  ?ctx a :RetrievedContext ;
+       :about ?finding .
+
+  # (3) O tipo de finding é "Unsupported"
+  #     (aqui usou um indivíduo específico :findingTypeUnsupported)
+  :findingTypeUnsupported a :FindingType ;
+                          :hasType ?finding .
+}
+ORDER BY ?answer

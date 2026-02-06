@@ -1,0 +1,7 @@
+# Ignorar a pasta Prototipos (na raiz)
+/Prototipos/
+
+# Ignorar arquivos específicos (na raiz)
+/Definição.txt
+/Dylan_Robson_Proposta.pdf
+/Sabio.pdf

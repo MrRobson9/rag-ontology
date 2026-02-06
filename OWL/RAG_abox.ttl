@@ -1,0 +1,131 @@
+@prefix : <http://purl.org/mrrobson9/rag#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# A-BOX (instâncias) mínima para o domínio RAG-Onto
+# Compatível com o TBox exportado em RAG.ttl (Export to gUFO)
+#################################################################
+
+########## Módulo A (Index-time) ##########
+
+:doc1 rdf:type :Document .
+
+:confLevel1 rdf:type :ConfidentialLevel ;
+  :inheresIn :doc1 .
+
+:chunkConf1 rdf:type :ChunkingConfiguration .
+:chunkExec1 rdf:type :ChunkingExec ;
+  :processes :doc1 ;
+  :creates :chunk1, :chunk2, :chunk3 .
+:chunkConf1 :uses :chunkExec1 .
+
+:chunk1 rdf:type :Chunk .
+:chunk2 rdf:type :Chunk .
+:chunk3 rdf:type :Chunk .
+
+:doc1 :hasChunk :chunk1, :chunk2, :chunk3 .
+
+:vs1 rdf:type :VectorStore .
+
+:embModel1 rdf:type :EmbeddingModel ;
+  :hasRelease :modelRel1 .
+:modelRel1 rdf:type :ModelRelease .
+
+:embConf1 rdf:type :EmbeddingConfiguration .
+
+:embExec1 rdf:type :EmbeddingExec ;
+  :processes_1 :chunk1 ;
+  :uses_1 :modelRel1 ;
+  :uses_5 :embConf1 ;
+  :creates_3 :vec1 .
+
+:embExec2 rdf:type :EmbeddingExec ;
+  :processes_1 :chunk2 ;
+  :uses_1 :modelRel1 ;
+  :uses_5 :embConf1 ;
+  :creates_3 :vec2 .
+
+:embExec3 rdf:type :EmbeddingExec ;
+  :processes_1 :chunk3 ;
+  :uses_1 :modelRel1 ;
+  :uses_5 :embConf1 ;
+  :creates_3 :vec3 .
+
+:vec1 rdf:type :EmbeddingVector ; :storedIn :vs1 .
+:vec2 rdf:type :EmbeddingVector ; :storedIn :vs1 .
+:vec3 rdf:type :EmbeddingVector ; :storedIn :vs1 .
+
+# No TBox: isEmbeddingOf tem domínio Chunk e range EmbeddingVector
+:chunk1 :isEmbeddingOf :vec1 .
+:chunk2 :isEmbeddingOf :vec2 .
+:chunk3 :isEmbeddingOf :vec3 .
+
+:indexRun1 rdf:type :IndexingRun ;
+  :includes :chunkExec1 ;
+  :includes_2 :embExec1, :embExec2, :embExec3 ;
+  :includes_1 :chunk1, :chunk2, :chunk3 .
+
+########## Módulo B (Query-time) ##########
+
+:q1 rdf:type :UserQuery ;
+  :triggers :retrievalExec1 .
+
+:retrievalExec1 rdf:type :RetrievalExec ;
+  :uses_3 :retrievalConf1 ;
+  :uses_2 :rerankerConf1 ;
+  :creates_1 :ctx1 ;
+  :produces :rc1, :rc2, :rc3 .
+
+:retrievalConf1 rdf:type :RetrievalConfig .
+:rerankerConf1 rdf:type :RerankerConfig .
+
+:ctx1 rdf:type :RetrievedContext ;
+  :hasItem :rc1, :rc2, :rc3 ;
+  :contains :chunk1, :chunk2, :chunk3 ;
+  :usedIn :prompt1 .
+
+:rc1 rdf:type :RetrievedChunk ; :refersTo_1 :chunk1 .
+:rc2 rdf:type :RetrievedChunk ; :refersTo_1 :chunk2 .
+:rc3 rdf:type :RetrievedChunk ; :refersTo_1 :chunk3 .
+
+:prompt1 rdf:type :Prompt ;
+  :inputTo :llmCall1 .
+
+:llmCall1 rdf:type :LLMCall ;
+  :uses_4 :genConf1 ;
+  :creates_2 :answer1 .
+
+:genConf1 rdf:type :GenerationConfig .
+
+:answer1 rdf:type :GeneratedAnswer ;
+  :cites :cit1, :cit2 ;
+  :hasFinding :finding1 .
+
+:cit1 rdf:type :Citation ; :refersTo :rc1 .
+:cit2 rdf:type :Citation ; :refersTo :rc2 .
+
+########## Validação (B5) ##########
+
+:valExec1 rdf:type :ValidationExec ;
+  :validates :answer1 .
+
+:findingTypeUnsupported rdf:type :FindingType .
+
+:finding1 rdf:type :ValidationFinding ;
+  # No TBox exportado: produces_1 está (ValidationFinding -> ValidationExec)
+  :produces_1 :valExec1 .
+
+# No TBox exportado: about está (RetrievedContext -> ValidationFinding)
+:ctx1 :about :finding1 .
+
+# Evidência opcional (no TBox: RetrievedChunk -> ValidationFinding)
+:rc1 :evidenceItem :finding1 .
+
+# No TBox exportado: hasType está (FindingType -> ValidationFinding)
+:findingTypeUnsupported :hasType :finding1 .
+
+########## Política de filtro (opcional) ##########
+
+:filterPolicy1 rdf:type :FilterPolicy ;
+  :applies :retrievalExec1 .

@@ -1,0 +1,25 @@
+PREFIX : <http://purl.org/mrrobson9/rag#>
+
+SELECT DISTINCT
+  ?q
+  ?retrievalExec
+  ?retrievalConf
+  (STR(?strategy) AS ?retrievalStrategy_str)
+  (STR(?metric)   AS ?similarityMetric_str)
+  (STR(?topk)     AS ?topK_str)
+  (STR(?filtersV) AS ?filters_str)
+WHERE {
+  VALUES ?q { :q1 }
+
+  # Query -> RetrievalExec
+  ?q :triggers ?retrievalExec .
+
+  # RetrievalExec -> RetrievalConfig
+  ?retrievalExec :uses_3 ?retrievalConf .
+
+  # Parâmetros do retriever (como data properties da RetrievalConfig)
+  OPTIONAL { ?retrievalConf :retrievalStrategy ?strategy . }
+  OPTIONAL { ?retrievalConf :similarityMetric   ?metric . }
+  OPTIONAL { ?retrievalConf :topK_1             ?topk . }
+  OPTIONAL { ?retrievalConf :filters            ?filtersV . }
+}

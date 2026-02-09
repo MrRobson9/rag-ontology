@@ -1,0 +1,37 @@
+PREFIX : <http://purl.org/mrrobson9/rag#>
+
+SELECT DISTINCT
+  (STR(?chunk) AS ?chunk_str)
+  (STR(?chunkExec) AS ?chunkingExec_str)
+  (STR(?chunkConf) AS ?chunkingConfig_str)
+
+  (STR(?strategyV) AS ?strategy_str)
+  (STR(?chunkSizeV) AS ?chunkSize_str)
+  (STR(?overlapV) AS ?overlap_str)
+  (STR(?separatorsV) AS ?separators_str)
+  (STR(?minChunkSizeV) AS ?minChunkSize_str)
+WHERE {
+  VALUES ?chunk { :chunk1 }
+
+  # 1) achar a execução que criou o chunk
+  ?chunkExec (:creates|:creates_1|:creates_2) ?chunk .
+
+  # 2) achar a configuração usada (aceitando os dois sentidos)
+  {
+    ?chunkExec (:uses|:uses_1|:uses_2|:uses_3|:uses_4) ?chunkConf .
+  }
+  UNION
+  {
+    ?chunkConf (:uses|:uses_1|:uses_2|:uses_3|:uses_4) ?chunkExec .
+  }
+
+  # (opcional, mas ajuda a filtrar “uses” errados)
+  OPTIONAL { ?chunkConf a :ChunkingConfiguration . }
+
+  # 3) parâmetros da configuração
+  OPTIONAL { ?chunkConf :strategy     ?strategyV . }
+  OPTIONAL { ?chunkConf :chunkSize    ?chunkSizeV . }
+  OPTIONAL { ?chunkConf :overlap      ?overlapV . }
+  OPTIONAL { ?chunkConf :separators   ?separatorsV . }
+  OPTIONAL { ?chunkConf :minChunkSize ?minChunkSizeV . }
+}

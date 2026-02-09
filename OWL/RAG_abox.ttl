@@ -1,131 +1,186 @@
 @prefix : <http://purl.org/mrrobson9/rag#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-#################################################################
-# A-BOX (instâncias) mínima para o domínio RAG-Onto
-# Compatível com o TBox exportado em RAG.ttl (Export to gUFO)
-#################################################################
+:chunkConf1 a :ChunkingConfiguration ;
+    :chunkSize 500 ;
+    :minChunkSize 100 ;
+    :overlap 50 ;
+    :separators """
 
-########## Módulo A (Index-time) ##########
+,
+,., """ ;
+    :strategy "recursive-character" ;
+    :uses :chunkExec1 .
 
-:doc1 rdf:type :Document .
+:confLevel1 a :ConfidentialLevel ;
+    :inheresIn :doc1 .
 
-:confLevel1 rdf:type :ConfidentialLevel ;
-  :inheresIn :doc1 .
+:embModel1 a :EmbeddingModel ;
+    :hasRelease :modelRel1 ;
+    :name_2 "text-embedding-3-large" ;
+    :provider "OpenAI" .
 
-:chunkConf1 rdf:type :ChunkingConfiguration .
-:chunkExec1 rdf:type :ChunkingExec ;
-  :processes :doc1 ;
-  :creates :chunk1, :chunk2, :chunk3 .
-:chunkConf1 :uses :chunkExec1 .
+:filterPolicy1 a :FilterPolicy ;
+    :applies :retrievalExec1 .
 
-:chunk1 rdf:type :Chunk .
-:chunk2 rdf:type :Chunk .
-:chunk3 rdf:type :Chunk .
+:findingTypeUnsupported a :FindingType ;
+    :hasType :finding1 .
 
-:doc1 :hasChunk :chunk1, :chunk2, :chunk3 .
+:indexRun1 a :IndexingRun ;
+    :includes :chunkExec1 ;
+    :includes_1 :chunk1,
+        :chunk2,
+        :chunk3 ;
+    :includes_2 :embExec1,
+        :embExec2,
+        :embExec3 .
 
-:vs1 rdf:type :VectorStore .
+:q1 a :UserQuery ;
+    :triggers :retrievalExec1 .
 
-:embModel1 rdf:type :EmbeddingModel ;
-  :hasRelease :modelRel1 .
-:modelRel1 rdf:type :ModelRelease .
+:cit1 a :Citation ;
+    :refersTo :rc1 .
 
-:embConf1 rdf:type :EmbeddingConfiguration .
+:cit2 a :Citation ;
+    :refersTo :rc2 .
 
-:embExec1 rdf:type :EmbeddingExec ;
-  :processes_1 :chunk1 ;
-  :uses_1 :modelRel1 ;
-  :uses_5 :embConf1 ;
-  :creates_3 :vec1 .
+:ctx1 a :RetrievedContext ;
+    :about :finding1 ;
+    :contains :chunk1,
+        :chunk2,
+        :chunk3 ;
+    :hasItem :rc1,
+        :rc2,
+        :rc3 ;
+    :usedIn :prompt1 .
 
-:embExec2 rdf:type :EmbeddingExec ;
-  :processes_1 :chunk2 ;
-  :uses_1 :modelRel1 ;
-  :uses_5 :embConf1 ;
-  :creates_3 :vec2 .
+:embExec1 a :EmbeddingExec ;
+    :creates_3 :vec1 ;
+    :processes_1 :chunk1 ;
+    :uses_1 :modelRel1 ;
+    :uses_5 :embConf1 .
 
-:embExec3 rdf:type :EmbeddingExec ;
-  :processes_1 :chunk3 ;
-  :uses_1 :modelRel1 ;
-  :uses_5 :embConf1 ;
-  :creates_3 :vec3 .
+:embExec2 a :EmbeddingExec ;
+    :creates_3 :vec2 ;
+    :processes_1 :chunk2 ;
+    :uses_1 :modelRel1 ;
+    :uses_5 :embConf1 .
 
-:vec1 rdf:type :EmbeddingVector ; :storedIn :vs1 .
-:vec2 rdf:type :EmbeddingVector ; :storedIn :vs1 .
-:vec3 rdf:type :EmbeddingVector ; :storedIn :vs1 .
+:embExec3 a :EmbeddingExec ;
+    :creates_3 :vec3 ;
+    :processes_1 :chunk3 ;
+    :uses_1 :modelRel1 ;
+    :uses_5 :embConf1 .
 
-# No TBox: isEmbeddingOf tem domínio Chunk e range EmbeddingVector
-:chunk1 :isEmbeddingOf :vec1 .
-:chunk2 :isEmbeddingOf :vec2 .
-:chunk3 :isEmbeddingOf :vec3 .
+:genConf1 a :GenerationConfig .
 
-:indexRun1 rdf:type :IndexingRun ;
-  :includes :chunkExec1 ;
-  :includes_2 :embExec1, :embExec2, :embExec3 ;
-  :includes_1 :chunk1, :chunk2, :chunk3 .
+:llmCall1 a :LLMCall ;
+    :creates_2 :answer1 ;
+    :uses_4 :genConf1 .
 
-########## Módulo B (Query-time) ##########
+:prompt1 a :Prompt ;
+    :inputTo :llmCall1 .
 
-:q1 rdf:type :UserQuery ;
-  :triggers :retrievalExec1 .
+:rerankExec1 a :RerankingExec ;
+    :execId_4 "rerankExec1"^^xsd:string .
 
-:retrievalExec1 rdf:type :RetrievalExec ;
-  :uses_3 :retrievalConf1 ;
-  :uses_2 :rerankerConf1 ;
-  :creates_1 :ctx1 ;
-  :produces :rc1, :rc2, :rc3 .
+:rerankerConf1 a :RerankerConfig ;
+    rdfs:label "cross-encoder reranker"@en ;
+    :filters_1 "none"^^xsd:string ;
+    :topK 3 .
 
-:retrievalConf1 rdf:type :RetrievalConfig .
-:rerankerConf1 rdf:type :RerankerConfig .
+:retrievalConf1 a :RetrievalConfig ;
+    :filters "confidential=false"^^xsd:string ;
+    :retrievalStrategy "dense-vector"^^xsd:string ;
+    :similarityMetric "cosine"^^xsd:string ;
+    :topK_1 10 .
 
-:ctx1 rdf:type :RetrievedContext ;
-  :hasItem :rc1, :rc2, :rc3 ;
-  :contains :chunk1, :chunk2, :chunk3 ;
-  :usedIn :prompt1 .
+:valExec1 a :ValidationExec ;
+    :validates :answer1 .
 
-:rc1 rdf:type :RetrievedChunk ; :refersTo_1 :chunk1 .
-:rc2 rdf:type :RetrievedChunk ; :refersTo_1 :chunk2 .
-:rc3 rdf:type :RetrievedChunk ; :refersTo_1 :chunk3 .
+:answer1 a :GeneratedAnswer ;
+    :cites :cit1,
+        :cit2 ;
+    :hasFinding :finding1 .
 
-:prompt1 rdf:type :Prompt ;
-  :inputTo :llmCall1 .
+:chunkExec1 a :ChunkingExec ;
+    :creates :chunk1,
+        :chunk2,
+        :chunk3 ;
+    :processes :doc1 .
 
-:llmCall1 rdf:type :LLMCall ;
-  :uses_4 :genConf1 ;
-  :creates_2 :answer1 .
+:doc1 a :Document ;
+    :docId "doc1" ;
+    :hasChunk :chunk1,
+        :chunk2,
+        :chunk3 ;
+    :sourceUri "file:///C:/Users/Dylan/Área de Trabalho/Ontologia/Trabalhos/Segundo/docs/doc1.pdf" ;
+    :title "Documento Exemplo (RAG)" .
 
-:genConf1 rdf:type :GenerationConfig .
+:rc3 a :RetrievedChunk ;
+    :rank 3 ;
+    :refersTo_1 :chunk3 ;
+    :score 0.82 .
 
-:answer1 rdf:type :GeneratedAnswer ;
-  :cites :cit1, :cit2 ;
-  :hasFinding :finding1 .
+:retrievalExec1 a :RetrievalExec ;
+    :creates_1 :ctx1 ;
+    :execId_3 "retrievalExec1"^^xsd:string ;
+    :partOf :rerankExec1 ;
+    :produces :rc1,
+        :rc2,
+        :rc3 ;
+    :uses_2 :rerankerConf1 ;
+    :uses_3 :retrievalConf1 .
 
-:cit1 rdf:type :Citation ; :refersTo :rc1 .
-:cit2 rdf:type :Citation ; :refersTo :rc2 .
+:vec1 a :EmbeddingVector ;
+    :storedIn :vs1 .
 
-########## Validação (B5) ##########
+:vec2 a :EmbeddingVector ;
+    :storedIn :vs1 .
 
-:valExec1 rdf:type :ValidationExec ;
-  :validates :answer1 .
+:vec3 a :EmbeddingVector ;
+    :storedIn :vs1 .
 
-:findingTypeUnsupported rdf:type :FindingType .
+:embConf1 a :EmbeddingConfiguration ;
+    :batchSize 32 ;
+    :normalize true ;
+    :pooling "mean" ;
+    :precision "fp16" .
 
-:finding1 rdf:type :ValidationFinding ;
-  # No TBox exportado: produces_1 está (ValidationFinding -> ValidationExec)
-  :produces_1 :valExec1 .
+:rc1 a :RetrievedChunk ;
+    :evidenceItem :finding1 ;
+    :rank 1 ;
+    :refersTo_1 :chunk1 ;
+    :score 0.91 .
 
-# No TBox exportado: about está (RetrievedContext -> ValidationFinding)
-:ctx1 :about :finding1 .
+:rc2 a :RetrievedChunk ;
+    :rank 2 ;
+    :refersTo_1 :chunk2 ;
+    :score 0.87 .
 
-# Evidência opcional (no TBox: RetrievedChunk -> ValidationFinding)
-:rc1 :evidenceItem :finding1 .
+:vs1 a :VectorStore .
 
-# No TBox exportado: hasType está (FindingType -> ValidationFinding)
-:findingTypeUnsupported :hasType :finding1 .
+:finding1 a :ValidationFinding ;
+    :produces_1 :valExec1 .
 
-########## Política de filtro (opcional) ##########
+:modelRel1 a :ModelRelease ;
+    :date "2026-01-01"^^xsd:date ;
+    :hash "sha256:0000000000000000000000000000000000000000000000000000000000000000" ;
+    :version "2026-01" .
 
-:filterPolicy1 rdf:type :FilterPolicy ;
-  :applies :retrievalExec1 .
+:chunk1 a :Chunk ;
+    :chunkId "chunk1" ;
+    :endOffset 500 ;
+    :isEmbeddingOf :vec1 .
+
+:chunk2 a :Chunk ;
+    :chunkId "chunk2" ;
+    :endOffset 1000 ;
+    :isEmbeddingOf :vec2 .
+
+:chunk3 a :Chunk ;
+    :chunkId "chunk3" ;
+    :endOffset 1500 ;
+    :isEmbeddingOf :vec3 .
+

@@ -1,0 +1,32 @@
+Operacional:
+Lucas:
+1 - Normalização do namespace + metadados OWL
+2 - Labels/comments (classes e propriedades principais)
+
+
+Dylan:
+3 - Segundo cenário no ABox + 2 queries extras (CQ6/CQ7) - Melhoria no Abox
+4 - Rodar reasoner + prints organizados (talvez usando o Stardog? Se criar sinonimos)
+
+Prazo - Até 19/02
+
+
+Relatório:
+Lucas:
+1 - Fazer a melhoria sugerida pelo JP (No geral muito bom. A parte 2, ficou um pouco "fragmentada". Não ficou muito claro no texto o que era do trabalho do Obst et al., o que era das outras refs/SABiO).
+2 - Explicar e detalhar o A-box criado
+3 - Explicar e explicitar as limitações
+4 - Explicar a disposição dos arquivos gerados:
+RAG.ttl - TBox gerado automaticamente. 
+RAG_abox.ttl → ABox curado por nós.
+RAG_TBOX_AND_ABOX.ttl - arquivo “executável” para demo (importe do abox dentro do tbox)
+
+Dylan:
+1 - Explicar como funciona o RAG (o que for necessário) e fazer paralelos com a Ontologia criada
+2 - Fazer o link entre o A-box e as perguntas de competência
+3 - Demonstrar as Queries em SparQL que respondem as perguntas de competência (talvez selecionar as mais pertinentes e mostrar, as outras podem ficar apenas no GitHub para não poluir muito, ou como anexo). CQ1-CQ2-CQ5–CQ7–CQ9–CQ10
+
+Até 22/02
+
+Slides:
+Dylan - Até 25/02

@@ -1,0 +1,19 @@
+PREFIX : <http://purl.org/mrrobson9/rag#>
+
+SELECT DISTINCT
+  (STR(?doc)   AS ?doc_str)
+  (STR(?chunk) AS ?chunk_str)
+  (STR(?chunkIdV) AS ?chunkId_str)
+  (STR(?endOffsetV) AS ?endOffset_str)
+WHERE {
+  # Documento alvo (troque se necessário)
+  VALUES ?doc { :doc1 }
+
+  # Documento -> Chunks
+  ?doc :hasChunk ?chunk .
+
+  # Metadados do chunk (se existirem)
+  OPTIONAL { ?chunk :chunkId    ?chunkIdV . }
+  OPTIONAL { ?chunk :endOffset  ?endOffsetV . }
+}
+ORDER BY ?chunk

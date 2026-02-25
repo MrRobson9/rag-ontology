@@ -1,7 +1,12 @@
 # Ignorar a pasta Prototipos (na raiz)
+/.old/
 /Prototipos/
 
 # Ignorar arquivos específicos (na raiz)
 /Definição.txt
 /Dylan_Robson_Proposta.pdf
+/Ontologia TB2.txt
 /Sabio.pdf
+/OntoUML/src
+/OntoUML/.bak_*
+/OWL/.xml

@@ -1,0 +1,32 @@
+PREFIX :    <http://purl.org/mrrobson9/rag#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT
+  ?answer ?finding ?ctx ?findingType
+  ?answerLabel ?findingLabel ?ctxLabel ?findingTypeLabel
+WHERE {
+  ?answer rdf:type :GeneratedAnswer ;
+          :hasFinding ?finding .
+
+  # O tipo do finding pode estar direto no finding...
+  OPTIONAL { ?finding :hasType ?findingType . }
+
+  # ...ou invertido (FindingType -> hasType -> Finding), como apareceu no seu A-box
+  OPTIONAL {
+    ?findingType rdf:type :FindingType ;
+                 :hasType ?finding .
+  }
+
+  # Rastreabilidade do achado para um contexto recuperado
+  OPTIONAL {
+    ?ctx rdf:type :RetrievedContext ;
+         :about ?finding .
+  }
+
+  OPTIONAL { ?answer rdfs:label ?answerLabel . }
+  OPTIONAL { ?finding rdfs:label ?findingLabel . }
+  OPTIONAL { ?ctx rdfs:label ?ctxLabel . }
+  OPTIONAL { ?findingType rdfs:label ?findingTypeLabel . }
+}
+ORDER BY ?answer ?finding ?ctx

@@ -1,0 +1,33 @@
+PREFIX : <http://purl.org/mrrobson9/rag#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT
+  ?doc 
+  (STR(?docLabelV) AS ?docLabel)
+  ?chunk 
+  (STR(?chunkLabelV) AS ?chunkLabel)
+  (STR(?chunkIdV) AS ?chunkId)
+  (STR(?endOffsetV) AS ?endOffset)
+WHERE {
+  VALUES ?doc { :doc1 }
+
+  OPTIONAL { ?doc rdfs:label ?docLabelV }
+
+  # Aceita duas modelagens:
+  # (A) doc hasChunk chunk
+  # (B) chunk segmentOf doc
+  {
+    ?doc :hasChunk ?chunk .
+  }
+  UNION
+  {
+    ?chunk :segmentOf ?doc .
+  }
+
+  ?chunk a :Chunk .
+  OPTIONAL { ?chunk rdfs:label ?chunkLabelV }
+
+  OPTIONAL { ?chunk :chunkId ?chunkIdV . }
+  OPTIONAL { ?chunk :endOffset ?endOffsetV . }
+}
+ORDER BY ?chunk

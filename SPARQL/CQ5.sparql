@@ -1,0 +1,32 @@
+PREFIX : <http://purl.org/mrrobson9/rag#>
+
+SELECT DISTINCT
+  ?q
+  ?retrievalExec
+  ?ctx
+  ?rc
+  ?chunk
+  (STR(?rankV) AS ?rank_str)
+  (STR(?scoreV) AS ?score_str)
+WHERE {
+  # Query do usuário (troque se necessário)
+  VALUES ?q { :q1 }
+
+  # Query -> RetrievalExec
+  ?q (:triggers|:triggers_1|:triggers_2) ?retrievalExec .
+
+  # RetrievalExec -> RetrievedContext
+  ?retrievalExec (:creates|:creates_1|:creates_2|:creates_3) ?ctx .
+  ?ctx a :RetrievedContext .
+
+  # Contexto recuperado contém itens reificados
+  ?ctx (:hasItem|:contains|:contains_1) ?rc .
+  ?rc a :RetrievedChunk .
+
+  # RetrievedChunk referencia o Chunk original
+  ?rc (:refersTo|:refersTo_1|:refersTo_2) ?chunk .
+
+  OPTIONAL { ?rc :rank ?rankV . }
+  OPTIONAL { ?rc :score ?scoreV . }
+}
+ORDER BY ?rankV ?scoreV ?rc

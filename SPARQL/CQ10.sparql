@@ -1,0 +1,134 @@
+PREFIX : <http://purl.org/mrrobson9/rag#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT
+  ?q ?qLabel
+  ?answer ?answerLabel
+  ?citation ?citationLabel
+  ?retrievedChunk ?retrievedChunkLabel
+  ?chunk ?chunkLabel
+  ?doc ?docLabel
+  ?retrievalExec ?retrievalExecLabel
+  ?ctx ?ctxLabel
+  ?prompt ?promptLabel
+  ?llmCall ?llmCallLabel
+  ?indexRun ?indexRunLabel
+  ?rank ?score
+WHERE {
+  VALUES ?q { :q1 }
+
+  ?q a :UserQuery .
+  OPTIONAL { ?q rdfs:label ?qLabel }
+
+  # q -> retrievalExec
+  OPTIONAL {
+    ?q ?pTrig ?retrievalExec .
+    ?retrievalExec a :RetrievalExec .
+    FILTER(REGEX(STR(?pTrig), "triggers"))
+    OPTIONAL { ?retrievalExec rdfs:label ?retrievalExecLabel }
+  }
+
+  # retrievalExec -> ctx
+  OPTIONAL {
+    ?retrievalExec ?pCtx ?ctx .
+    ?ctx a :RetrievedContext .
+    FILTER(REGEX(STR(?pCtx), "creates|uses"))
+    OPTIONAL { ?ctx rdfs:label ?ctxLabel }
+  }
+
+  # q -> answer (direto)
+  OPTIONAL {
+    ?q ?pAns ?answer .
+    ?answer a :GeneratedAnswer .
+    FILTER(REGEX(STR(?pAns), "hasAnswer"))
+    OPTIONAL { ?answer rdfs:label ?answerLabel }
+  }
+
+  # answer -> citation
+  OPTIONAL {
+    ?answer ?pCit ?citation .
+    ?citation a :Citation .
+    FILTER(REGEX(STR(?pCit), "cites"))
+    OPTIONAL { ?citation rdfs:label ?citationLabel }
+  }
+
+  # citation -> retrievedChunk
+  OPTIONAL {
+    ?citation ?pRC ?retrievedChunk .
+    ?retrievedChunk a :RetrievedChunk .
+    FILTER(REGEX(STR(?pRC), "refersTo|cites|supports"))
+    OPTIONAL { ?retrievedChunk rdfs:label ?retrievedChunkLabel }
+  }
+
+  # fallback: se a citação não liga ao retrievedChunk, tenta pelo ctx
+  OPTIONAL {
+    ?ctx ?pHasItem ?retrievedChunk2 .
+    ?retrievedChunk2 a :RetrievedChunk .
+    FILTER(REGEX(STR(?pHasItem), "hasItem|contains"))
+  }
+
+  BIND(COALESCE(?retrievedChunk, ?retrievedChunk2) AS ?rcFinal)
+
+  # rc -> chunk
+  OPTIONAL {
+    ?rcFinal ?pChunk ?chunk .
+    ?chunk a :Chunk .
+    FILTER(REGEX(STR(?pChunk), "refersTo"))
+    OPTIONAL { ?chunk rdfs:label ?chunkLabel }
+  }
+
+  # rank/score (usando STR para remover a URI gigante do xsd na exibição)
+  OPTIONAL { 
+    ?rcFinal :rank ?rawRank . 
+    BIND(STR(?rawRank) AS ?rank)
+  }
+  OPTIONAL { 
+    ?rcFinal :score ?rawScore . 
+    BIND(STR(?rawScore) AS ?score)
+  }
+
+  # chunk -> doc
+  OPTIONAL {
+    { ?doc :hasChunk ?chunk . }
+    UNION
+    { ?chunk :segmentOf ?doc . }
+    ?doc a :Document .
+    OPTIONAL { ?doc rdfs:label ?docLabel }
+  }
+
+  # Escolhe um único prompt para o contexto (evita combinatória)
+  OPTIONAL {
+    SELECT ?ctx (SAMPLE(?p1) AS ?prompt)
+    WHERE {
+      ?p1 a :Prompt ;
+          ?pp ?ctx .
+      FILTER(REGEX(STR(?pp), "usedIn|contains|uses"))
+    }
+    GROUP BY ?ctx
+  }
+  OPTIONAL { ?prompt rdfs:label ?promptLabel }
+
+  # Escolhe um único llmCall para a resposta (evita combinatória)
+  OPTIONAL {
+    SELECT ?answer (SAMPLE(?lc1) AS ?llmCall)
+    WHERE {
+      ?lc1 a :LLMCall ;
+           ?pl ?answer .
+      FILTER(REGEX(STR(?pl), "creates|produces"))
+    }
+    GROUP BY ?answer
+  }
+  OPTIONAL { ?llmCall rdfs:label ?llmCallLabel }
+
+  # tenta recuperar indexingRun (pode ficar vazio)
+  OPTIONAL {
+    ?embExec a :EmbeddingExec ; ?pe ?chunk .
+    FILTER(REGEX(STR(?pe), "processes|uses"))
+
+    ?indexRun a :IndexingRun ; ?pi ?embExec .
+    FILTER(REGEX(STR(?pi), "includes"))
+    OPTIONAL { ?indexRun rdfs:label ?indexRunLabel }
+  }
+}
+# Ordenando pelos valores numéricos brutos para não quebrar a lógica matemática
+ORDER BY ?rawRank ?rawScore ?citation

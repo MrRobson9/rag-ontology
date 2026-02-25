@@ -1,3 +1,5 @@
+Cronograma/Tarefas:
+
 Operacional:
 Lucas:
 1 - Normalização do namespace + metadados OWL
@@ -5,10 +7,11 @@ Lucas:
 
 
 Dylan:
-3 - Segundo cenário no ABox + 2 queries extras (CQ6/CQ7) - Melhoria no Abox
-4 - Rodar reasoner + prints organizados (talvez usando o Stardog? Se criar sinonimos)
+3 - Segundo cenário no ABox para cenário A- Melhoria no Abox
+4 - Criar consultas SPARQL para as questões de competência
 
-Prazo - Até 19/02
+(Sujeito a alterações)
+Prazo - Até 20/02
 
 
 Relatório:
@@ -20,13 +23,15 @@ Lucas:
 RAG.ttl - TBox gerado automaticamente. 
 RAG_abox.ttl → ABox curado por nós.
 RAG_TBOX_AND_ABOX.ttl - arquivo “executável” para demo (importe do abox dentro do tbox)
+(Nomes sujeitos a alteração)
+
 
 Dylan:
-1 - Explicar como funciona o RAG (o que for necessário) e fazer paralelos com a Ontologia criada
+1 - Explicar como funciona o RAG (de forma simplificada) e fazer paralelos com a Ontologia criada
 2 - Fazer o link entre o A-box e as perguntas de competência
 3 - Demonstrar as Queries em SparQL que respondem as perguntas de competência (talvez selecionar as mais pertinentes e mostrar, as outras podem ficar apenas no GitHub para não poluir muito, ou como anexo). CQ1-CQ2-CQ5–CQ7–CQ9–CQ10
 
-Até 22/02
+Até 23/02
 
 Slides:
-Dylan - Até 25/02
+Dylan - Até 24/02

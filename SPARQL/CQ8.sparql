@@ -1,0 +1,52 @@
+PREFIX : <http://purl.org/mrrobson9/rag#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT
+  ?answer ?answerLabel
+  ?citation 
+  ?rc ?rcLabel
+  ?chunk ?chunkLabel
+  ?doc ?docLabel
+  ?ctx ?ctxLabel
+  ?conf ?confLabel
+WHERE {
+  VALUES ?answer { :answer1 }
+
+  OPTIONAL { ?answer rdfs:label ?answerLabel }
+
+  # Resposta -> citação
+  ?answer :cites ?citation .
+  OPTIONAL { ?citation rdfs:label ?citationLabel }
+
+  # Citação -> item recuperado (RetrievedChunk)
+  ?citation (:refersTo|:refersTo_1) ?rc .
+  ?rc a :RetrievedChunk .
+  OPTIONAL { ?rc rdfs:label ?rcLabel }
+
+  # Item recuperado -> chunk
+  ?rc (:refersTo|:refersTo_1) ?chunk .
+  ?chunk a :Chunk .
+  OPTIONAL { ?chunk rdfs:label ?chunkLabel }
+
+  # Chunk -> documento
+  OPTIONAL { ?chunk :segmentOf ?doc . }
+  OPTIONAL { ?doc :hasChunk ?chunk . }
+  ?doc a :Document .
+  OPTIONAL { ?doc rdfs:label ?docLabel }
+
+  # Contexto que contém esse item recuperado
+  OPTIONAL {
+    ?ctx a :RetrievedContext ;
+         (:hasItem|:contains) ?rc .
+    OPTIONAL { ?ctx rdfs:label ?ctxLabel }
+  }
+
+  # Nível de confidencialidade (alguns A-box podem usar doc->conf; outros conf->doc)
+  OPTIONAL {
+    { ?doc :hasConfidentialLevel ?conf . }
+    UNION
+    { ?conf :inheresIn ?doc . }
+    OPTIONAL { ?conf rdfs:label ?confLabel }
+  }
+}
+ORDER BY ?citation ?rc

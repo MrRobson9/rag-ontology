@@ -1,186 +1,1158 @@
-@prefix : <http://purl.org/mrrobson9/rag#> .
+@prefix rag: <http://purl.org/mrrobson9/rag#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:chunkConf1 a :ChunkingConfiguration ;
-    :chunkSize 500 ;
-    :minChunkSize 100 ;
-    :overlap 50 ;
-    :separators """
+<http://purl.org/mrrobson9/rag-abox-synth-auto> a owl:Ontology .
 
-,
-,., """ ;
-    :strategy "recursive-character" ;
-    :uses :chunkExec1 .
+rag:answer1
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 1"@pt .
 
-:confLevel1 a :ConfidentialLevel ;
-    :inheresIn :doc1 .
+rag:answer2
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 2"@pt .
 
-:embModel1 a :EmbeddingModel ;
-    :hasRelease :modelRel1 ;
-    :name_2 "text-embedding-3-large" ;
-    :provider "OpenAI" .
+rag:answer3
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 3"@pt .
 
-:filterPolicy1 a :FilterPolicy ;
-    :applies :retrievalExec1 .
+rag:answer4
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 4"@pt .
 
-:findingTypeUnsupported a :FindingType ;
-    :hasType :finding1 .
+rag:answer5
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 5"@pt .
 
-:indexRun1 a :IndexingRun ;
-    :includes :chunkExec1 ;
-    :includes_1 :chunk1,
-        :chunk2,
-        :chunk3 ;
-    :includes_2 :embExec1,
-        :embExec2,
-        :embExec3 .
+rag:answer6
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 6"@pt .
 
-:q1 a :UserQuery ;
-    :triggers :retrievalExec1 .
+rag:chunk1
+  rag:segmentOf rag:doc1 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 1"@pt .
 
-:cit1 a :Citation ;
-    :refersTo :rc1 .
+rag:chunk10
+  rag:segmentOf rag:doc2 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 10"@pt .
 
-:cit2 a :Citation ;
-    :refersTo :rc2 .
+rag:chunk11
+  rag:segmentOf rag:doc3 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 11"@pt .
 
-:ctx1 a :RetrievedContext ;
-    :about :finding1 ;
-    :contains :chunk1,
-        :chunk2,
-        :chunk3 ;
-    :hasItem :rc1,
-        :rc2,
-        :rc3 ;
-    :usedIn :prompt1 .
+rag:chunk12
+  rag:segmentOf rag:doc3 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 12"@pt .
 
-:embExec1 a :EmbeddingExec ;
-    :creates_3 :vec1 ;
-    :processes_1 :chunk1 ;
-    :uses_1 :modelRel1 ;
-    :uses_5 :embConf1 .
+rag:chunk13
+  rag:segmentOf rag:doc3 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 13"@pt .
 
-:embExec2 a :EmbeddingExec ;
-    :creates_3 :vec2 ;
-    :processes_1 :chunk2 ;
-    :uses_1 :modelRel1 ;
-    :uses_5 :embConf1 .
+rag:chunk14
+  rag:segmentOf rag:doc3 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 14"@pt .
 
-:embExec3 a :EmbeddingExec ;
-    :creates_3 :vec3 ;
-    :processes_1 :chunk3 ;
-    :uses_1 :modelRel1 ;
-    :uses_5 :embConf1 .
+rag:chunk15
+  rag:segmentOf rag:doc3 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 15"@pt .
 
-:genConf1 a :GenerationConfig .
+rag:chunk16
+  rag:segmentOf rag:doc4 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 16"@pt .
 
-:llmCall1 a :LLMCall ;
-    :creates_2 :answer1 ;
-    :uses_4 :genConf1 .
+rag:chunk17
+  rag:segmentOf rag:doc4 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 17"@pt .
 
-:prompt1 a :Prompt ;
-    :inputTo :llmCall1 .
+rag:chunk18
+  rag:segmentOf rag:doc4 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 18"@pt .
 
-:rerankExec1 a :RerankingExec ;
-    :execId_4 "rerankExec1"^^xsd:string .
+rag:chunk19
+  rag:segmentOf rag:doc4 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 19"@pt .
 
-:rerankerConf1 a :RerankerConfig ;
-    rdfs:label "cross-encoder reranker"@en ;
-    :filters_1 "none"^^xsd:string ;
-    :topK 3 .
+rag:chunk2
+  rag:segmentOf rag:doc1 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 2"@pt .
 
-:retrievalConf1 a :RetrievalConfig ;
-    :filters "confidential=false"^^xsd:string ;
-    :retrievalStrategy "dense-vector"^^xsd:string ;
-    :similarityMetric "cosine"^^xsd:string ;
-    :topK_1 10 .
+rag:chunk20
+  rag:segmentOf rag:doc4 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 20"@pt .
 
-:valExec1 a :ValidationExec ;
-    :validates :answer1 .
+rag:chunk3
+  rag:segmentOf rag:doc1 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 3"@pt .
 
-:answer1 a :GeneratedAnswer ;
-    :cites :cit1,
-        :cit2 ;
-    :hasFinding :finding1 .
+rag:chunk4
+  rag:segmentOf rag:doc1 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 4"@pt .
 
-:chunkExec1 a :ChunkingExec ;
-    :creates :chunk1,
-        :chunk2,
-        :chunk3 ;
-    :processes :doc1 .
+rag:chunk5
+  rag:segmentOf rag:doc1 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 5"@pt .
 
-:doc1 a :Document ;
-    :docId "doc1" ;
-    :hasChunk :chunk1,
-        :chunk2,
-        :chunk3 ;
-    :sourceUri "file:///C:/Users/Dylan/Área de Trabalho/Ontologia/Trabalhos/Segundo/docs/doc1.pdf" ;
-    :title "Documento Exemplo (RAG)" .
+rag:chunk6
+  rag:segmentOf rag:doc2 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 6"@pt .
 
-:rc3 a :RetrievedChunk ;
-    :rank 3 ;
-    :refersTo_1 :chunk3 ;
-    :score 0.82 .
+rag:chunk7
+  rag:segmentOf rag:doc2 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 7"@pt .
 
-:retrievalExec1 a :RetrievalExec ;
-    :creates_1 :ctx1 ;
-    :execId_3 "retrievalExec1"^^xsd:string ;
-    :partOf :rerankExec1 ;
-    :produces :rc1,
-        :rc2,
-        :rc3 ;
-    :uses_2 :rerankerConf1 ;
-    :uses_3 :retrievalConf1 .
+rag:chunk8
+  rag:segmentOf rag:doc2 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 8"@pt .
 
-:vec1 a :EmbeddingVector ;
-    :storedIn :vs1 .
+rag:chunk9
+  rag:segmentOf rag:doc2 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 9"@pt .
 
-:vec2 a :EmbeddingVector ;
-    :storedIn :vs1 .
+rag:chunkConf1
+  rag:chunkSize "384"^^xsd:integer ;
+  rag:minChunkSize "128"^^xsd:integer ;
+  rag:overlap "64"^^xsd:integer ;
+  rag:separators "[\"\\n\\n\",\"\\n\",\". \",\" \"]"^^xsd:string ;
+  rag:strategy "recursive"^^xsd:string ;
+  rdf:type rag:ChunkingConfiguration ;
+  rdfs:label "ChunkingConfiguration 1"@pt .
 
-:vec3 a :EmbeddingVector ;
-    :storedIn :vs1 .
+rag:chunkConf2
+  rag:chunkSize "384"^^xsd:integer ;
+  rag:minChunkSize "32"^^xsd:integer ;
+  rag:overlap "32"^^xsd:integer ;
+  rag:separators "[\"\\n\\n\",\"\\n\",\". \",\" \"]"^^xsd:string ;
+  rag:strategy "sentence"^^xsd:string ;
+  rdf:type rag:ChunkingConfiguration ;
+  rdfs:label "ChunkingConfiguration 2"@pt .
 
-:embConf1 a :EmbeddingConfiguration ;
-    :batchSize 32 ;
-    :normalize true ;
-    :pooling "mean" ;
-    :precision "fp16" .
+rag:chunkConf3
+  rag:chunkSize "768"^^xsd:integer ;
+  rag:minChunkSize "32"^^xsd:integer ;
+  rag:overlap "0"^^xsd:integer ;
+  rag:separators "[\"\\n\\n\",\"\\n\",\". \",\" \"]"^^xsd:string ;
+  rag:strategy "recursive"^^xsd:string ;
+  rdf:type rag:ChunkingConfiguration ;
+  rdfs:label "ChunkingConfiguration 3"@pt .
 
-:rc1 a :RetrievedChunk ;
-    :evidenceItem :finding1 ;
-    :rank 1 ;
-    :refersTo_1 :chunk1 ;
-    :score 0.91 .
+rag:chunkConf4
+  rag:chunkSize "768"^^xsd:integer ;
+  rag:minChunkSize "32"^^xsd:integer ;
+  rag:overlap "0"^^xsd:integer ;
+  rag:separators "[\"\\n\\n\",\"\\n\",\". \",\" \"]"^^xsd:string ;
+  rag:strategy "sentence"^^xsd:string ;
+  rdf:type rag:ChunkingConfiguration ;
+  rdfs:label "ChunkingConfiguration 4"@pt .
 
-:rc2 a :RetrievedChunk ;
-    :rank 2 ;
-    :refersTo_1 :chunk2 ;
-    :score 0.87 .
+rag:chunkExec1
+  rag:creates rag:chunk1 ;
+  rag:creates rag:chunk2 ;
+  rag:creates rag:chunk3 ;
+  rag:creates rag:chunk4 ;
+  rag:creates rag:chunk5 ;
+  rag:uses rag:chunkConf1 ;
+  rag:uses_1 rag:doc1 ;
+  rdf:type rag:ChunkingExec ;
+  rdfs:label "ChunkingExec 1"@pt .
 
-:vs1 a :VectorStore .
+rag:chunkExec2
+  rag:creates rag:chunk10 ;
+  rag:creates rag:chunk6 ;
+  rag:creates rag:chunk7 ;
+  rag:creates rag:chunk8 ;
+  rag:creates rag:chunk9 ;
+  rag:uses rag:chunkConf2 ;
+  rag:uses_1 rag:doc2 ;
+  rdf:type rag:ChunkingExec ;
+  rdfs:label "ChunkingExec 2"@pt .
 
-:finding1 a :ValidationFinding ;
-    :produces_1 :valExec1 .
+rag:chunkExec3
+  rag:creates rag:chunk11 ;
+  rag:creates rag:chunk12 ;
+  rag:creates rag:chunk13 ;
+  rag:creates rag:chunk14 ;
+  rag:creates rag:chunk15 ;
+  rag:uses rag:chunkConf3 ;
+  rag:uses_1 rag:doc3 ;
+  rdf:type rag:ChunkingExec ;
+  rdfs:label "ChunkingExec 3"@pt .
 
-:modelRel1 a :ModelRelease ;
-    :date "2026-01-01"^^xsd:date ;
-    :hash "sha256:0000000000000000000000000000000000000000000000000000000000000000" ;
-    :version "2026-01" .
+rag:chunkExec4
+  rag:creates rag:chunk16 ;
+  rag:creates rag:chunk17 ;
+  rag:creates rag:chunk18 ;
+  rag:creates rag:chunk19 ;
+  rag:creates rag:chunk20 ;
+  rag:uses rag:chunkConf4 ;
+  rag:uses_1 rag:doc4 ;
+  rdf:type rag:ChunkingExec ;
+  rdfs:label "ChunkingExec 4"@pt .
 
-:chunk1 a :Chunk ;
-    :chunkId "chunk1" ;
-    :endOffset 500 ;
-    :isEmbeddingOf :vec1 .
+rag:ctx1
+  rag:hasItem rag:rc1 ;
+  rag:hasItem rag:rc2 ;
+  rag:hasItem rag:rc3 ;
+  rag:hasItem rag:rc4 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 1"@pt .
 
-:chunk2 a :Chunk ;
-    :chunkId "chunk2" ;
-    :endOffset 1000 ;
-    :isEmbeddingOf :vec2 .
+rag:ctx2
+  rag:hasItem rag:rc5 ;
+  rag:hasItem rag:rc6 ;
+  rag:hasItem rag:rc7 ;
+  rag:hasItem rag:rc8 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 2"@pt .
 
-:chunk3 a :Chunk ;
-    :chunkId "chunk3" ;
-    :endOffset 1500 ;
-    :isEmbeddingOf :vec3 .
+rag:ctx3
+  rag:hasItem rag:rc10 ;
+  rag:hasItem rag:rc11 ;
+  rag:hasItem rag:rc12 ;
+  rag:hasItem rag:rc9 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 3"@pt .
+
+rag:ctx4
+  rag:hasItem rag:rc13 ;
+  rag:hasItem rag:rc14 ;
+  rag:hasItem rag:rc15 ;
+  rag:hasItem rag:rc16 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 4"@pt .
+
+rag:ctx5
+  rag:hasItem rag:rc17 ;
+  rag:hasItem rag:rc18 ;
+  rag:hasItem rag:rc19 ;
+  rag:hasItem rag:rc20 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 5"@pt .
+
+rag:ctx6
+  rag:hasItem rag:rc21 ;
+  rag:hasItem rag:rc22 ;
+  rag:hasItem rag:rc23 ;
+  rag:hasItem rag:rc24 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 6"@pt .
+
+rag:doc1
+  rag:hasChunk rag:chunk1 ;
+  rag:hasChunk rag:chunk2 ;
+  rag:hasChunk rag:chunk3 ;
+  rag:hasChunk rag:chunk4 ;
+  rag:hasChunk rag:chunk5 ;
+  rag:hasConfidentialLevel rag:levelPublic ;
+  rdf:type rag:Document ;
+  rdfs:label "Documento 1"@pt .
+
+rag:doc2
+  rag:hasChunk rag:chunk10 ;
+  rag:hasChunk rag:chunk6 ;
+  rag:hasChunk rag:chunk7 ;
+  rag:hasChunk rag:chunk8 ;
+  rag:hasChunk rag:chunk9 ;
+  rag:hasConfidentialLevel rag:levelInternal ;
+  rdf:type rag:Document ;
+  rdfs:label "Documento 2"@pt .
+
+rag:doc3
+  rag:hasChunk rag:chunk11 ;
+  rag:hasChunk rag:chunk12 ;
+  rag:hasChunk rag:chunk13 ;
+  rag:hasChunk rag:chunk14 ;
+  rag:hasChunk rag:chunk15 ;
+  rag:hasConfidentialLevel rag:levelInternal ;
+  rdf:type rag:Document ;
+  rdfs:label "Documento 3"@pt .
+
+rag:doc4
+  rag:hasChunk rag:chunk16 ;
+  rag:hasChunk rag:chunk17 ;
+  rag:hasChunk rag:chunk18 ;
+  rag:hasChunk rag:chunk19 ;
+  rag:hasChunk rag:chunk20 ;
+  rag:hasConfidentialLevel rag:levelInternal ;
+  rdf:type rag:Document ;
+  rdfs:label "Documento 4"@pt .
+
+rag:embConf1
+  rag:batchSize "32"^^xsd:integer ;
+  rag:normalize "true"^^xsd:boolean ;
+  rag:pooling "mean"^^xsd:string ;
+  rag:precision "fp32"^^xsd:string ;
+  rdf:type rag:EmbeddingConfiguration ;
+  rdfs:label "EmbeddingConfiguration 1"@pt .
+
+rag:embModel1
+  rag:hasRelease rag:modelRel1 ;
+  rdf:type rag:EmbeddingModel ;
+  rdfs:label "Embedding Model 1"@pt .
+
+rag:embVec1
+  rag:refersTo rag:chunk1 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 1"@pt .
+
+rag:embVec10
+  rag:refersTo rag:chunk10 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 10"@pt .
+
+rag:embVec11
+  rag:refersTo rag:chunk11 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 11"@pt .
+
+rag:embVec12
+  rag:refersTo rag:chunk12 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 12"@pt .
+
+rag:embVec13
+  rag:refersTo rag:chunk13 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 13"@pt .
+
+rag:embVec14
+  rag:refersTo rag:chunk14 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 14"@pt .
+
+rag:embVec15
+  rag:refersTo rag:chunk15 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 15"@pt .
+
+rag:embVec16
+  rag:refersTo rag:chunk16 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 16"@pt .
+
+rag:embVec17
+  rag:refersTo rag:chunk17 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 17"@pt .
+
+rag:embVec18
+  rag:refersTo rag:chunk18 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 18"@pt .
+
+rag:embVec19
+  rag:refersTo rag:chunk19 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 19"@pt .
+
+rag:embVec2
+  rag:refersTo rag:chunk2 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 2"@pt .
+
+rag:embVec20
+  rag:refersTo rag:chunk20 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 20"@pt .
+
+rag:embVec3
+  rag:refersTo rag:chunk3 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 3"@pt .
+
+rag:embVec4
+  rag:refersTo rag:chunk4 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 4"@pt .
+
+rag:embVec5
+  rag:refersTo rag:chunk5 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 5"@pt .
+
+rag:embVec6
+  rag:refersTo rag:chunk6 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 6"@pt .
+
+rag:embVec7
+  rag:refersTo rag:chunk7 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 7"@pt .
+
+rag:embVec8
+  rag:refersTo rag:chunk8 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 8"@pt .
+
+rag:embVec9
+  rag:refersTo rag:chunk9 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 9"@pt .
+
+rag:embeddingExec1
+  rag:creates rag:embVec1 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk1 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 1"@pt .
+
+rag:embeddingExec10
+  rag:creates rag:embVec10 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk10 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 10"@pt .
+
+rag:embeddingExec11
+  rag:creates rag:embVec11 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk11 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 11"@pt .
+
+rag:embeddingExec12
+  rag:creates rag:embVec12 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk12 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 12"@pt .
+
+rag:embeddingExec13
+  rag:creates rag:embVec13 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk13 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 13"@pt .
+
+rag:embeddingExec14
+  rag:creates rag:embVec14 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk14 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 14"@pt .
+
+rag:embeddingExec15
+  rag:creates rag:embVec15 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk15 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 15"@pt .
+
+rag:embeddingExec16
+  rag:creates rag:embVec16 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk16 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 16"@pt .
+
+rag:embeddingExec17
+  rag:creates rag:embVec17 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk17 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 17"@pt .
+
+rag:embeddingExec18
+  rag:creates rag:embVec18 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk18 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 18"@pt .
+
+rag:embeddingExec19
+  rag:creates rag:embVec19 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk19 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 19"@pt .
+
+rag:embeddingExec2
+  rag:creates rag:embVec2 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk2 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 2"@pt .
+
+rag:embeddingExec20
+  rag:creates rag:embVec20 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk20 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 20"@pt .
+
+rag:embeddingExec3
+  rag:creates rag:embVec3 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk3 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 3"@pt .
+
+rag:embeddingExec4
+  rag:creates rag:embVec4 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk4 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 4"@pt .
+
+rag:embeddingExec5
+  rag:creates rag:embVec5 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk5 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 5"@pt .
+
+rag:embeddingExec6
+  rag:creates rag:embVec6 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk6 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 6"@pt .
+
+rag:embeddingExec7
+  rag:creates rag:embVec7 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk7 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 7"@pt .
+
+rag:embeddingExec8
+  rag:creates rag:embVec8 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk8 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 8"@pt .
+
+rag:embeddingExec9
+  rag:creates rag:embVec9 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk9 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 9"@pt .
+
+rag:filterPolicy1
+  rdf:type rag:FilterPolicy ;
+  rdfs:label "FilterPolicy 1"@pt .
+
+rag:finding1
+  rag:hasType rag:findingTypeSupported ;
+  rag:severity "low"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 1"@pt .
+
+rag:finding2
+  rag:hasType rag:findingTypeUnsupported ;
+  rag:severity "medium"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 2"@pt .
+
+rag:finding3
+  rag:hasType rag:findingTypeSupported ;
+  rag:severity "low"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 3"@pt .
+
+rag:finding4
+  rag:hasType rag:findingTypeUnsupported ;
+  rag:severity "low"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 4"@pt .
+
+rag:finding5
+  rag:hasType rag:findingTypeSupported ;
+  rag:severity "low"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 5"@pt .
+
+rag:finding6
+  rag:hasType rag:findingTypeSupported ;
+  rag:severity "medium"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 6"@pt .
+
+rag:findingTypeSupported
+  rdf:type rag:FindingType ;
+  rdfs:label "Supported Claim"@pt .
+
+rag:findingTypeUnsupported
+  rdf:type rag:FindingType ;
+  rdfs:label "Unsupported Claim"@pt .
+
+rag:indexRun1
+  rdf:type rag:IndexingRun ;
+  rdfs:label "IndexingRun 1"@pt .
+
+rag:indexRun2
+  rdf:type rag:IndexingRun ;
+  rdfs:label "IndexingRun 2"@pt .
+
+rag:indexRun3
+  rdf:type rag:IndexingRun ;
+  rdfs:label "IndexingRun 3"@pt .
+
+rag:indexRun4
+  rdf:type rag:IndexingRun ;
+  rdfs:label "IndexingRun 4"@pt .
+
+rag:levelConfidential
+  rdf:type rag:ConfidentialLevel ;
+  rdfs:label "Nível Confidential"@pt .
+
+rag:levelInternal
+  rdf:type rag:ConfidentialLevel ;
+  rdfs:label "Nível Internal"@pt .
+
+rag:levelPublic
+  rdf:type rag:ConfidentialLevel ;
+  rdfs:label "Nível Public"@pt .
+
+rag:llmCall1
+  rag:creates rag:answer1 ;
+  rag:uses rag:prompt1 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 1"@pt .
+
+rag:llmCall2
+  rag:creates rag:answer2 ;
+  rag:uses rag:prompt2 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 2"@pt .
+
+rag:llmCall3
+  rag:creates rag:answer3 ;
+  rag:uses rag:prompt3 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 3"@pt .
+
+rag:llmCall4
+  rag:creates rag:answer4 ;
+  rag:uses rag:prompt4 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 4"@pt .
+
+rag:llmCall5
+  rag:creates rag:answer5 ;
+  rag:uses rag:prompt5 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 5"@pt .
+
+rag:llmCall6
+  rag:creates rag:answer6 ;
+  rag:uses rag:prompt6 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 6"@pt .
+
+rag:modelRel1
+  rdf:type rag:ModelRelease ;
+  rdfs:label "Model Release 1"@pt .
+
+rag:prompt1
+  rag:uses rag:ctx1 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 1"@pt .
+
+rag:prompt2
+  rag:uses rag:ctx2 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 2"@pt .
+
+rag:prompt3
+  rag:uses rag:ctx3 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 3"@pt .
+
+rag:prompt4
+  rag:uses rag:ctx4 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 4"@pt .
+
+rag:prompt5
+  rag:uses rag:ctx5 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 5"@pt .
+
+rag:prompt6
+  rag:uses rag:ctx6 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 6"@pt .
+
+rag:q1
+  rag:hasAnswer rag:answer1 ;
+  rag:triggers rag:retrievalExec1 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 1"@pt .
+
+rag:q2
+  rag:hasAnswer rag:answer2 ;
+  rag:triggers rag:retrievalExec2 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 2"@pt .
+
+rag:q3
+  rag:hasAnswer rag:answer3 ;
+  rag:triggers rag:retrievalExec3 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 3"@pt .
+
+rag:q4
+  rag:hasAnswer rag:answer4 ;
+  rag:triggers rag:retrievalExec4 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 4"@pt .
+
+rag:q5
+  rag:hasAnswer rag:answer5 ;
+  rag:triggers rag:retrievalExec5 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 5"@pt .
+
+rag:q6
+  rag:hasAnswer rag:answer6 ;
+  rag:triggers rag:retrievalExec6 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 6"@pt .
+
+rag:rc1
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk5 ;
+  rag:score "0.9376"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 1"@pt .
+
+rag:rc10
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk7 ;
+  rag:score "0.6076"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 10"@pt .
+
+rag:rc11
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk3 ;
+  rag:score "0.5352"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 11"@pt .
+
+rag:rc12
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk12 ;
+  rag:score "0.4076"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 12"@pt .
+
+rag:rc13
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk15 ;
+  rag:score "0.8713"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 13"@pt .
+
+rag:rc14
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk13 ;
+  rag:score "0.6692"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 14"@pt .
+
+rag:rc15
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk20 ;
+  rag:score "0.4124"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 15"@pt .
+
+rag:rc16
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk2 ;
+  rag:score "0.4060"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 16"@pt .
+
+rag:rc17
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk3 ;
+  rag:score "0.9814"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 17"@pt .
+
+rag:rc18
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk18 ;
+  rag:score "0.8430"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 18"@pt .
+
+rag:rc19
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk13 ;
+  rag:score "0.6788"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 19"@pt .
+
+rag:rc2
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk20 ;
+  rag:score "0.8943"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 2"@pt .
+
+rag:rc20
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk1 ;
+  rag:score "0.5549"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 20"@pt .
+
+rag:rc21
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk3 ;
+  rag:score "0.9403"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 21"@pt .
+
+rag:rc22
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk2 ;
+  rag:score "0.7870"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 22"@pt .
+
+rag:rc23
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk17 ;
+  rag:score "0.7171"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 23"@pt .
+
+rag:rc24
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk13 ;
+  rag:score "0.4862"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 24"@pt .
+
+rag:rc3
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk1 ;
+  rag:score "0.7383"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 3"@pt .
+
+rag:rc4
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk10 ;
+  rag:score "0.5565"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 4"@pt .
+
+rag:rc5
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk17 ;
+  rag:score "0.8999"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 5"@pt .
+
+rag:rc6
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk14 ;
+  rag:score "0.7072"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 6"@pt .
+
+rag:rc7
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk18 ;
+  rag:score "0.7009"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 7"@pt .
+
+rag:rc8
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk16 ;
+  rag:score "0.6475"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 8"@pt .
+
+rag:rc9
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk1 ;
+  rag:score "0.7139"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 9"@pt .
+
+rag:rerankExec1
+  rag:uses rag:rerankerConf2 ;
+  rag:uses_1 rag:ctx1 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 1"@pt .
+
+rag:rerankExec2
+  rag:uses rag:rerankerConf1 ;
+  rag:uses_1 rag:ctx2 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 2"@pt .
+
+rag:rerankExec3
+  rag:uses rag:rerankerConf1 ;
+  rag:uses_1 rag:ctx3 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 3"@pt .
+
+rag:rerankExec4
+  rag:uses rag:rerankerConf2 ;
+  rag:uses_1 rag:ctx4 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 4"@pt .
+
+rag:rerankExec5
+  rag:uses rag:rerankerConf2 ;
+  rag:uses_1 rag:ctx5 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 5"@pt .
+
+rag:rerankExec6
+  rag:uses rag:rerankerConf2 ;
+  rag:uses_1 rag:ctx6 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 6"@pt .
+
+rag:rerankerConf1
+  rdf:type rag:RerankerConfig ;
+  rdfs:label "RerankerConfig 1"@pt .
+
+rag:rerankerConf2
+  rdf:type rag:RerankerConfig ;
+  rdfs:label "RerankerConfig 2"@pt .
+
+rag:retrievalConf1
+  rag:strategy "hybrid"^^xsd:string ;
+  rag:topK "4"^^xsd:integer ;
+  rdf:type rag:RetrievalConfig ;
+  rdfs:label "RetrievalConfig 1"@pt .
+
+rag:retrievalConf2
+  rag:strategy "hybrid"^^xsd:string ;
+  rag:topK "4"^^xsd:integer ;
+  rdf:type rag:RetrievalConfig ;
+  rdfs:label "RetrievalConfig 2"@pt .
+
+rag:retrievalConf3
+  rag:strategy "vector"^^xsd:string ;
+  rag:topK "4"^^xsd:integer ;
+  rdf:type rag:RetrievalConfig ;
+  rdfs:label "RetrievalConfig 3"@pt .
+
+rag:retrievalExec1
+  rag:creates_1 rag:ctx1 ;
+  rag:uses rag:retrievalConf1 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 1"@pt .
+
+rag:retrievalExec2
+  rag:creates_1 rag:ctx2 ;
+  rag:uses rag:retrievalConf3 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 2"@pt .
+
+rag:retrievalExec3
+  rag:creates_1 rag:ctx3 ;
+  rag:uses rag:retrievalConf2 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 3"@pt .
+
+rag:retrievalExec4
+  rag:creates_1 rag:ctx4 ;
+  rag:uses rag:retrievalConf3 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 4"@pt .
+
+rag:retrievalExec5
+  rag:creates_1 rag:ctx5 ;
+  rag:uses rag:retrievalConf2 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 5"@pt .
+
+rag:retrievalExec6
+  rag:creates_1 rag:ctx6 ;
+  rag:uses rag:retrievalConf1 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 6"@pt .
+
+rag:valExec1
+  rag:creates rag:finding1 ;
+  rag:uses rag:answer1 ;
+  rag:uses_1 rag:ctx1 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 1"@pt .
+
+rag:valExec2
+  rag:creates rag:finding2 ;
+  rag:uses rag:answer2 ;
+  rag:uses_1 rag:ctx2 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 2"@pt .
+
+rag:valExec3
+  rag:creates rag:finding3 ;
+  rag:uses rag:answer3 ;
+  rag:uses_1 rag:ctx3 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 3"@pt .
+
+rag:valExec4
+  rag:creates rag:finding4 ;
+  rag:uses rag:answer4 ;
+  rag:uses_1 rag:ctx4 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 4"@pt .
+
+rag:valExec5
+  rag:creates rag:finding5 ;
+  rag:uses rag:answer5 ;
+  rag:uses_1 rag:ctx5 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 5"@pt .
+
+rag:valExec6
+  rag:creates rag:finding6 ;
+  rag:uses rag:answer6 ;
+  rag:uses_1 rag:ctx6 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 6"@pt .
+
+rag:vs1
+  rdf:type rag:VectorStore ;
+  rdfs:label "VectorStore 1"@pt .
+
+
+# --- PATCHES adicionados para compatibilidade com queries CQ1-CQ10 (demo q1) ---
+
+# CQ1: metadados dos chunks
+rag:chunk1 rag:chunkId "chunk1" ; rag:endOffset 500 .
+rag:chunk2 rag:chunkId "chunk2" ; rag:endOffset 1000 .
+rag:chunk3 rag:chunkId "chunk3" ; rag:endOffset 1500 .
+
+# CQ6: completar RetrievalConfig (alguns geradores sintéticos deixam campos opcionais ausentes)
+rag:retrievalConf1 rag:retrievalStrategy "dense-vector" ;
+                  rag:similarityMetric "cosine" ;
+                  rag:filters "confidential=false" .
+
+# CQ7: reranking (ligações e parâmetros)
+rag:rerankExec1 a rag:RerankingExec ;
+               rag:execId_4 "rerankExec1" .
+
+rag:rerankerConf1 a rag:RerankerConfig ;
+                 rag:topK 3 ;
+                 rag:filters_1 "none" ;
+                 rdfs:label "cross-encoder reranker"@en .
+
+rag:retrievalExec1 rag:partOf rag:rerankExec1 ;
+                  rag:uses_2 rag:rerankerConf1 .
+
+# Scores finais de reranking (reuso dos mesmos rc do contexto demo)
+rag:rc1 rag:finalRank 1 ; rag:finalScore 0.91 .
+rag:rc2 rag:finalRank 2 ; rag:finalScore 0.87 .
+rag:rc3 rag:finalRank 3 ; rag:finalScore 0.82 .
+
+# CQ9/CQ10: achados de validação e citações/rastreabilidade
+rag:answer1 rag:hasFinding rag:finding1 ;
+           rag:cites rag:cit1, rag:cit2 .
+
+rag:ctx1 rag:about rag:finding1 .
+
+rag:finding1 a rag:ValidationFinding ;
+           rag:produces_1 rag:valExec1 .
+
+rag:valExec1 a rag:ValidationExec ;
+           rag:validates rag:answer1 .
+
+rag:findingTypeUnsupported a rag:FindingType ;
+                          rag:hasType rag:finding1 .
+
+rag:cit1 a rag:Citation ;
+        rag:refersTo rag:rc1 ;
+        rag:span "Trecho evidencial 1" ;
+        rag:startOffset 0 ;
+        rag:confidence 0.95 .
+
+rag:cit2 a rag:Citation ;
+        rag:refersTo rag:rc2 ;
+        rag:span "Trecho evidencial 2" ;
+        rag:startOffset 120 ;
+        rag:confidence 0.89 .
+
+# CQ8: restrição de confidencialidade (um documento/chunk sigiloso para demonstrar consulta)
+rag:confLevel1 a rag:ConfidentialLevel ;
+             rag:inheresIn rag:doc1 .
+
+# Se seu T-Box/A-box usa a variante 'hasConfidentialLevel', mantemos também:
+rag:doc1 rag:hasConfidentialLevel rag:confLevel1 .
+
 

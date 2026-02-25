@@ -1,0 +1,46 @@
+PREFIX : <http://purl.org/mrrobson9/rag#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT
+  ?chunk ?chunkLabel
+  ?embExec ?embExecLabel
+  ?embConf ?embConfLabel
+  ?vector ?vectorLabel
+  ?indexRun ?indexRunLabel
+WHERE {
+  VALUES ?chunk { :chunk1 }
+
+  OPTIONAL { ?chunk rdfs:label ?chunkLabel }
+
+  # EmbeddingExec que processa o chunk (usa caminho robusto por causa dos nomes gerados)
+  ?embExec a :EmbeddingExec ;
+           ?pChunk ?chunk .
+  FILTER(REGEX(STR(?pChunk), "processes|uses"))
+
+  OPTIONAL { ?embExec rdfs:label ?embExecLabel }
+
+  # Configuração de embedding usada pela execução
+  OPTIONAL {
+    ?embExec ?pConf ?embConf .
+    ?embConf a :EmbeddingConfiguration .
+    FILTER(REGEX(STR(?pConf), "uses"))
+    OPTIONAL { ?embConf rdfs:label ?embConfLabel }
+  }
+
+  # Vetor criado pela execução
+  OPTIONAL {
+    ?embExec ?pVec ?vector .
+    ?vector a :EmbeddingVector .
+    FILTER(REGEX(STR(?pVec), "creates"))
+    OPTIONAL { ?vector rdfs:label ?vectorLabel }
+  }
+
+  # IndexingRun que inclui a execução de embedding (pode não existir no A-box sintético)
+  OPTIONAL {
+    ?indexRun a :IndexingRun ;
+              ?pIR ?embExec .
+    FILTER(REGEX(STR(?pIR), "includes"))
+    OPTIONAL { ?indexRun rdfs:label ?indexRunLabel }
+  }
+}
+ORDER BY ?embExec ?vector ?indexRun

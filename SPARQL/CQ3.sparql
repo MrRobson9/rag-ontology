@@ -1,0 +1,39 @@
+PREFIX : <http://purl.org/mrrobson9/rag#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT
+  ?chunk
+  ?chunkLabel
+  ?chunkExec
+  ?chunkExecLabel
+  ?chunkConf
+  ?chunkConfLabel
+  (STR(?strategyV) AS ?strategy)
+  (STR(?chunkSizeV) AS ?chunkSize)
+  (STR(?overlapV) AS ?overlap)
+  (STR(?separatorsV) AS ?separators)
+  (STR(?minChunkSizeV) AS ?minChunkSize)
+WHERE {
+  VALUES ?chunk { :chunk1 }
+
+  OPTIONAL { ?chunk rdfs:label ?chunkLabel . }
+
+  # execução de chunking que cria o chunk
+  ?chunkExec a :ChunkingExec ;
+            :creates ?chunk .
+
+  OPTIONAL { ?chunkExec rdfs:label ?chunkExecLabel . }
+
+  # configuração usada na execução
+  ?chunkExec :uses ?chunkConf .
+  ?chunkConf a :ChunkingConfiguration .
+
+  OPTIONAL { ?chunkConf rdfs:label ?chunkConfLabel . }
+
+  OPTIONAL { ?chunkConf :strategy ?strategyV . }
+  OPTIONAL { ?chunkConf :chunkSize ?chunkSizeV . }
+  OPTIONAL { ?chunkConf :overlap ?overlapV . }
+  OPTIONAL { ?chunkConf :separators ?separatorsV . }
+  OPTIONAL { ?chunkConf :minChunkSize ?minChunkSizeV . }
+}
+ORDER BY ?chunkExec ?chunkConf

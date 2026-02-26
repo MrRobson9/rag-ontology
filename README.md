@@ -35,7 +35,7 @@ O projeto adota uma abordagem de ciclo misto (Metodologia SABiO), indo do modelo
 ┃ ┗  Resultados              # Capturas de tela (PNG) das queries rodando no Protégé
 ┣  .gitignore                # Arquivos ignorados pelo git
 ┣  LICENSE                   # Licença Attribution 4.0 International
-┗  readMe.md                 # Este arquivo
+┗  README.md                 # Este arquivo
 ```
 
 ## Como reproduzir (Guia Rápido)

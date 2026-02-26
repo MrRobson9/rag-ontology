@@ -2,32 +2,26 @@ PREFIX : <http://purl.org/mrrobson9/rag#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT DISTINCT
-  ?doc 
-  (STR(?docLabelV) AS ?docLabel)
-  ?chunk 
-  (STR(?chunkLabelV) AS ?chunkLabel)
-  (STR(?chunkIdV) AS ?chunkId)
-  (STR(?endOffsetV) AS ?endOffset)
+  ?doc ?docLabel ?chunk ?chunkLabel ?embExec
+  ?model ?modelLabel ?release ?releaseLabel
 WHERE {
   VALUES ?doc { :doc1 }
-
-  OPTIONAL { ?doc rdfs:label ?docLabelV }
-
-  # Aceita duas modelagens:
-  # (A) doc hasChunk chunk
-  # (B) chunk segmentOf doc
-  {
-    ?doc :hasChunk ?chunk .
-  }
-  UNION
-  {
-    ?chunk :segmentOf ?doc .
-  }
-
-  ?chunk a :Chunk .
-  OPTIONAL { ?chunk rdfs:label ?chunkLabelV }
-
-  OPTIONAL { ?chunk :chunkId ?chunkIdV . }
-  OPTIONAL { ?chunk :endOffset ?endOffsetV . }
+  ?doc :hasChunk ?chunk .
+  
+  # Liga o chunk à execução (No seu A-box é uses_1)
+  ?embExec a :EmbeddingExec ;
+           (:uses|:uses_1|:uses_2) ?chunk .
+           
+  # Liga a execução ao modelo de embedding (No seu A-box é uses_2)
+  ?embExec (:uses|:uses_1|:uses_2) ?model .
+  ?model a :EmbeddingModel .
+  
+  # Pega o release do modelo
+  OPTIONAL { ?model :hasRelease ?release . }
+  
+  # Labels
+  OPTIONAL { ?doc rdfs:label ?docLabel }
+  OPTIONAL { ?chunk rdfs:label ?chunkLabel }
+  OPTIONAL { ?model rdfs:label ?modelLabel }
+  OPTIONAL { ?release rdfs:label ?releaseLabel }
 }
-ORDER BY ?chunk

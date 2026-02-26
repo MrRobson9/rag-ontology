@@ -3,47 +3,30 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT DISTINCT
   ?q
-  ?qLabel
   ?retrievalExec
-  ?retrievalExecLabel
   ?rerankExec
-  ?rerankExecLabel
   ?rerankerConf
-  ?rerankerConfLabel
-  (STR(?rerankerNameLabel) AS ?rerankerName)
-  (STR(?rerankTopKV) AS ?rerankTopK)
-  (STR(?rerankFiltersV) AS ?rerankFilters)
+  ?rc
+  (STR(?finalRankV) AS ?finalRank)
+  (STR(?finalScoreV) AS ?finalScore)
 WHERE {
   VALUES ?q { :q1 }
-
-  OPTIONAL { ?q rdfs:label ?qLabel . }
-
+  
   ?q :triggers ?retrievalExec .
-  ?retrievalExec a :RetrievalExec .
-  OPTIONAL { ?retrievalExec rdfs:label ?retrievalExecLabel . }
-
-  # Contexto produzido pela retrieval (nomes podem variar)
-  ?retrievalExec (:creates|:creates_1) ?ctx .
-  ?ctx a :RetrievedContext .
-
-  # RerankingExec que usa esse contexto
-  ?rerankExec a :RerankingExec ;
-             (:uses_1|:uses) ?ctx .
-  OPTIONAL { ?rerankExec rdfs:label ?rerankExecLabel . }
-
-  # RerankerConfig usada pelo reranking
-  ?rerankExec :uses ?rerankerConf .
+  
+  # Verifica se houve reranking
+  ?retrievalExec :partOf ?rerankExec .
+  ?rerankExec a :RerankingExec .
+  
+  # Pega a configuração do reranker (pela Retrieval ou pelo RerankerExec)
+  ?rerankExec (:uses|:uses_1|:uses_2) ?rerankerConf .
   ?rerankerConf a :RerankerConfig .
-  OPTIONAL { ?rerankerConf rdfs:label ?rerankerConfLabel . }
-
-  # nome do reranker: no seu A-box, às vezes está no rdfs:label @en
-  OPTIONAL {
-    ?rerankerConf rdfs:label ?rerankerNameLabel .
-    FILTER(lang(?rerankerNameLabel) = "en")
-  }
-
-  OPTIONAL { ?rerankerConf :topK ?rerankTopKV . }
-  OPTIONAL { ?rerankerConf :filters ?rerankFiltersV . }
-  OPTIONAL { ?rerankerConf :filters_1 ?rerankFiltersV . }
+  
+  # Para pegar os chunks, temos que passar pelo Contexto!
+  ?retrievalExec (:creates|:creates_1) ?ctx .
+  ?ctx :hasItem ?rc .
+  
+  # Pega os scores finais do Rerank (se existirem)
+  OPTIONAL { ?rc :finalRank ?finalRankV }
+  OPTIONAL { ?rc :finalScore ?finalScoreV }
 }
-ORDER BY ?q ?rerankExec

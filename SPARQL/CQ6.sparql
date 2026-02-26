@@ -2,36 +2,25 @@ PREFIX : <http://purl.org/mrrobson9/rag#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT DISTINCT
-  ?q
-  ?qLabel
-  ?retrievalExec
-  ?retrievalExecLabel
-  ?retrievalConf
-  ?retrievalConfLabel
+  ?q ?qLabel
+  ?retrievalExec ?retrievalExecLabel
+  ?retrievalConf ?retrievalConfLabel
   (STR(?strategyV) AS ?retrievalStrategy)
   (STR(?simMetricV) AS ?similarityMetric)
   (STR(?topKV) AS ?topK)
-  (STR(?filtersV) AS ?filters)
 WHERE {
   VALUES ?q { :q1 }
-
-  OPTIONAL { ?q rdfs:label ?qLabel . }
-
+  
   ?q :triggers ?retrievalExec .
-  ?retrievalExec a :RetrievalExec .
-  OPTIONAL { ?retrievalExec rdfs:label ?retrievalExecLabel . }
-
-  # Config ligada à execução (alguns A-box usam :uses / outros usam propriedades numeradas)
+  
+  # Flexibiliza a busca pela configuração (para pegar uses, uses_1, etc.)
   ?retrievalExec (:uses|:uses_1|:uses_2|:uses_3) ?retrievalConf .
   ?retrievalConf a :RetrievalConfig .
-  OPTIONAL { ?retrievalConf rdfs:label ?retrievalConfLabel . }
-
-  OPTIONAL { ?retrievalConf :strategy ?strategyV . }
-  OPTIONAL { ?retrievalConf :similarityMetric ?simMetricV . }
-  OPTIONAL { ?retrievalConf :topK ?topKV . }
-
-  # filtros podem estar em :filters ou :filters_1
-  OPTIONAL { ?retrievalConf :filters ?filtersV . }
-  OPTIONAL { ?retrievalConf :filters_1 ?filtersV . }
+  
+  OPTIONAL { ?q rdfs:label ?qLabel }
+  OPTIONAL { ?retrievalExec rdfs:label ?retrievalExecLabel }
+  OPTIONAL { ?retrievalConf rdfs:label ?retrievalConfLabel }
+  OPTIONAL { ?retrievalConf :strategy ?strategyV }
+  OPTIONAL { ?retrievalConf :similarityMetric ?simMetricV }
+  OPTIONAL { ?retrievalConf :topK ?topKV }
 }
-ORDER BY ?q ?retrievalExec

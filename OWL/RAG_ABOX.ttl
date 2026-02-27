@@ -1,1218 +1,1158 @@
-@prefix : <http://purl.org/mrrobson9/rag#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rag: <http://purl.org/mrrobson9/rag#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://purl.org/mrrobson9/rag#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/mrrobson9/rag-abox-synth-auto> a owl:Ontology .
+
+rag:answer1
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 1"@pt .
+
+rag:answer2
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 2"@pt .
+
+rag:answer3
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 3"@pt .
+
+rag:answer4
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 4"@pt .
+
+rag:answer5
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 5"@pt .
+
+rag:answer6
+  rdf:type rag:GeneratedAnswer ;
+  rdfs:label "GeneratedAnswer 6"@pt .
+
+rag:chunk1
+  rag:segmentOf rag:doc1 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 1"@pt .
+
+rag:chunk10
+  rag:segmentOf rag:doc2 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 10"@pt .
+
+rag:chunk11
+  rag:segmentOf rag:doc3 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 11"@pt .
+
+rag:chunk12
+  rag:segmentOf rag:doc3 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 12"@pt .
+
+rag:chunk13
+  rag:segmentOf rag:doc3 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 13"@pt .
+
+rag:chunk14
+  rag:segmentOf rag:doc3 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 14"@pt .
+
+rag:chunk15
+  rag:segmentOf rag:doc3 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 15"@pt .
+
+rag:chunk16
+  rag:segmentOf rag:doc4 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 16"@pt .
+
+rag:chunk17
+  rag:segmentOf rag:doc4 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 17"@pt .
+
+rag:chunk18
+  rag:segmentOf rag:doc4 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 18"@pt .
+
+rag:chunk19
+  rag:segmentOf rag:doc4 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 19"@pt .
+
+rag:chunk2
+  rag:segmentOf rag:doc1 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 2"@pt .
+
+rag:chunk20
+  rag:segmentOf rag:doc4 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 20"@pt .
+
+rag:chunk3
+  rag:segmentOf rag:doc1 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 3"@pt .
+
+rag:chunk4
+  rag:segmentOf rag:doc1 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 4"@pt .
+
+rag:chunk5
+  rag:segmentOf rag:doc1 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 5"@pt .
+
+rag:chunk6
+  rag:segmentOf rag:doc2 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 6"@pt .
+
+rag:chunk7
+  rag:segmentOf rag:doc2 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 7"@pt .
+
+rag:chunk8
+  rag:segmentOf rag:doc2 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 8"@pt .
+
+rag:chunk9
+  rag:segmentOf rag:doc2 ;
+  rdf:type rag:Chunk ;
+  rdfs:label "Chunk 9"@pt .
+
+rag:chunkConf1
+  rag:chunkSize "384"^^xsd:integer ;
+  rag:minChunkSize "128"^^xsd:integer ;
+  rag:overlap "64"^^xsd:integer ;
+  rag:separators "[\"\\n\\n\",\"\\n\",\". \",\" \"]"^^xsd:string ;
+  rag:strategy "recursive"^^xsd:string ;
+  rdf:type rag:ChunkingConfiguration ;
+  rdfs:label "ChunkingConfiguration 1"@pt .
+
+rag:chunkConf2
+  rag:chunkSize "384"^^xsd:integer ;
+  rag:minChunkSize "32"^^xsd:integer ;
+  rag:overlap "32"^^xsd:integer ;
+  rag:separators "[\"\\n\\n\",\"\\n\",\". \",\" \"]"^^xsd:string ;
+  rag:strategy "sentence"^^xsd:string ;
+  rdf:type rag:ChunkingConfiguration ;
+  rdfs:label "ChunkingConfiguration 2"@pt .
+
+rag:chunkConf3
+  rag:chunkSize "768"^^xsd:integer ;
+  rag:minChunkSize "32"^^xsd:integer ;
+  rag:overlap "0"^^xsd:integer ;
+  rag:separators "[\"\\n\\n\",\"\\n\",\". \",\" \"]"^^xsd:string ;
+  rag:strategy "recursive"^^xsd:string ;
+  rdf:type rag:ChunkingConfiguration ;
+  rdfs:label "ChunkingConfiguration 3"@pt .
+
+rag:chunkConf4
+  rag:chunkSize "768"^^xsd:integer ;
+  rag:minChunkSize "32"^^xsd:integer ;
+  rag:overlap "0"^^xsd:integer ;
+  rag:separators "[\"\\n\\n\",\"\\n\",\". \",\" \"]"^^xsd:string ;
+  rag:strategy "sentence"^^xsd:string ;
+  rdf:type rag:ChunkingConfiguration ;
+  rdfs:label "ChunkingConfiguration 4"@pt .
+
+rag:chunkExec1
+  rag:creates rag:chunk1 ;
+  rag:creates rag:chunk2 ;
+  rag:creates rag:chunk3 ;
+  rag:creates rag:chunk4 ;
+  rag:creates rag:chunk5 ;
+  rag:uses rag:chunkConf1 ;
+  rag:uses_1 rag:doc1 ;
+  rdf:type rag:ChunkingExec ;
+  rdfs:label "ChunkingExec 1"@pt .
+
+rag:chunkExec2
+  rag:creates rag:chunk10 ;
+  rag:creates rag:chunk6 ;
+  rag:creates rag:chunk7 ;
+  rag:creates rag:chunk8 ;
+  rag:creates rag:chunk9 ;
+  rag:uses rag:chunkConf2 ;
+  rag:uses_1 rag:doc2 ;
+  rdf:type rag:ChunkingExec ;
+  rdfs:label "ChunkingExec 2"@pt .
+
+rag:chunkExec3
+  rag:creates rag:chunk11 ;
+  rag:creates rag:chunk12 ;
+  rag:creates rag:chunk13 ;
+  rag:creates rag:chunk14 ;
+  rag:creates rag:chunk15 ;
+  rag:uses rag:chunkConf3 ;
+  rag:uses_1 rag:doc3 ;
+  rdf:type rag:ChunkingExec ;
+  rdfs:label "ChunkingExec 3"@pt .
+
+rag:chunkExec4
+  rag:creates rag:chunk16 ;
+  rag:creates rag:chunk17 ;
+  rag:creates rag:chunk18 ;
+  rag:creates rag:chunk19 ;
+  rag:creates rag:chunk20 ;
+  rag:uses rag:chunkConf4 ;
+  rag:uses_1 rag:doc4 ;
+  rdf:type rag:ChunkingExec ;
+  rdfs:label "ChunkingExec 4"@pt .
+
+rag:ctx1
+  rag:hasItem rag:rc1 ;
+  rag:hasItem rag:rc2 ;
+  rag:hasItem rag:rc3 ;
+  rag:hasItem rag:rc4 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 1"@pt .
+
+rag:ctx2
+  rag:hasItem rag:rc5 ;
+  rag:hasItem rag:rc6 ;
+  rag:hasItem rag:rc7 ;
+  rag:hasItem rag:rc8 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 2"@pt .
+
+rag:ctx3
+  rag:hasItem rag:rc10 ;
+  rag:hasItem rag:rc11 ;
+  rag:hasItem rag:rc12 ;
+  rag:hasItem rag:rc9 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 3"@pt .
+
+rag:ctx4
+  rag:hasItem rag:rc13 ;
+  rag:hasItem rag:rc14 ;
+  rag:hasItem rag:rc15 ;
+  rag:hasItem rag:rc16 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 4"@pt .
+
+rag:ctx5
+  rag:hasItem rag:rc17 ;
+  rag:hasItem rag:rc18 ;
+  rag:hasItem rag:rc19 ;
+  rag:hasItem rag:rc20 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 5"@pt .
+
+rag:ctx6
+  rag:hasItem rag:rc21 ;
+  rag:hasItem rag:rc22 ;
+  rag:hasItem rag:rc23 ;
+  rag:hasItem rag:rc24 ;
+  rdf:type rag:RetrievedContext ;
+  rdfs:label "RetrievedContext 6"@pt .
+
+rag:doc1
+  rag:hasChunk rag:chunk1 ;
+  rag:hasChunk rag:chunk2 ;
+  rag:hasChunk rag:chunk3 ;
+  rag:hasChunk rag:chunk4 ;
+  rag:hasChunk rag:chunk5 ;
+  rag:hasConfidentialLevel rag:levelPublic ;
+  rdf:type rag:Document ;
+  rdfs:label "Documento 1"@pt .
+
+rag:doc2
+  rag:hasChunk rag:chunk10 ;
+  rag:hasChunk rag:chunk6 ;
+  rag:hasChunk rag:chunk7 ;
+  rag:hasChunk rag:chunk8 ;
+  rag:hasChunk rag:chunk9 ;
+  rag:hasConfidentialLevel rag:levelInternal ;
+  rdf:type rag:Document ;
+  rdfs:label "Documento 2"@pt .
+
+rag:doc3
+  rag:hasChunk rag:chunk11 ;
+  rag:hasChunk rag:chunk12 ;
+  rag:hasChunk rag:chunk13 ;
+  rag:hasChunk rag:chunk14 ;
+  rag:hasChunk rag:chunk15 ;
+  rag:hasConfidentialLevel rag:levelInternal ;
+  rdf:type rag:Document ;
+  rdfs:label "Documento 3"@pt .
+
+rag:doc4
+  rag:hasChunk rag:chunk16 ;
+  rag:hasChunk rag:chunk17 ;
+  rag:hasChunk rag:chunk18 ;
+  rag:hasChunk rag:chunk19 ;
+  rag:hasChunk rag:chunk20 ;
+  rag:hasConfidentialLevel rag:levelInternal ;
+  rdf:type rag:Document ;
+  rdfs:label "Documento 4"@pt .
+
+rag:embConf1
+  rag:batchSize "32"^^xsd:integer ;
+  rag:normalize "true"^^xsd:boolean ;
+  rag:pooling "mean"^^xsd:string ;
+  rag:precision "fp32"^^xsd:string ;
+  rdf:type rag:EmbeddingConfiguration ;
+  rdfs:label "EmbeddingConfiguration 1"@pt .
+
+rag:embModel1
+  rag:hasRelease rag:modelRel1 ;
+  rdf:type rag:EmbeddingModel ;
+  rdfs:label "Embedding Model 1"@pt .
+
+rag:embVec1
+  rag:refersTo rag:chunk1 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 1"@pt .
+
+rag:embVec10
+  rag:refersTo rag:chunk10 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 10"@pt .
+
+rag:embVec11
+  rag:refersTo rag:chunk11 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 11"@pt .
+
+rag:embVec12
+  rag:refersTo rag:chunk12 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 12"@pt .
+
+rag:embVec13
+  rag:refersTo rag:chunk13 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 13"@pt .
+
+rag:embVec14
+  rag:refersTo rag:chunk14 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 14"@pt .
+
+rag:embVec15
+  rag:refersTo rag:chunk15 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 15"@pt .
+
+rag:embVec16
+  rag:refersTo rag:chunk16 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 16"@pt .
+
+rag:embVec17
+  rag:refersTo rag:chunk17 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 17"@pt .
+
+rag:embVec18
+  rag:refersTo rag:chunk18 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 18"@pt .
+
+rag:embVec19
+  rag:refersTo rag:chunk19 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 19"@pt .
+
+rag:embVec2
+  rag:refersTo rag:chunk2 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 2"@pt .
+
+rag:embVec20
+  rag:refersTo rag:chunk20 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 20"@pt .
+
+rag:embVec3
+  rag:refersTo rag:chunk3 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 3"@pt .
+
+rag:embVec4
+  rag:refersTo rag:chunk4 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 4"@pt .
+
+rag:embVec5
+  rag:refersTo rag:chunk5 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 5"@pt .
+
+rag:embVec6
+  rag:refersTo rag:chunk6 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 6"@pt .
+
+rag:embVec7
+  rag:refersTo rag:chunk7 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 7"@pt .
+
+rag:embVec8
+  rag:refersTo rag:chunk8 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 8"@pt .
+
+rag:embVec9
+  rag:refersTo rag:chunk9 ;
+  rag:storedIn rag:vs1 ;
+  rdf:type rag:EmbeddingVector ;
+  rdfs:label "EmbeddingVector 9"@pt .
+
+rag:embeddingExec1
+  rag:creates rag:embVec1 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk1 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 1"@pt .
+
+rag:embeddingExec10
+  rag:creates rag:embVec10 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk10 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 10"@pt .
+
+rag:embeddingExec11
+  rag:creates rag:embVec11 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk11 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 11"@pt .
+
+rag:embeddingExec12
+  rag:creates rag:embVec12 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk12 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 12"@pt .
+
+rag:embeddingExec13
+  rag:creates rag:embVec13 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk13 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 13"@pt .
+
+rag:embeddingExec14
+  rag:creates rag:embVec14 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk14 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 14"@pt .
+
+rag:embeddingExec15
+  rag:creates rag:embVec15 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk15 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 15"@pt .
+
+rag:embeddingExec16
+  rag:creates rag:embVec16 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk16 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 16"@pt .
+
+rag:embeddingExec17
+  rag:creates rag:embVec17 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk17 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 17"@pt .
+
+rag:embeddingExec18
+  rag:creates rag:embVec18 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk18 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 18"@pt .
+
+rag:embeddingExec19
+  rag:creates rag:embVec19 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk19 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 19"@pt .
+
+rag:embeddingExec2
+  rag:creates rag:embVec2 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk2 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 2"@pt .
+
+rag:embeddingExec20
+  rag:creates rag:embVec20 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk20 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 20"@pt .
+
+rag:embeddingExec3
+  rag:creates rag:embVec3 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk3 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 3"@pt .
+
+rag:embeddingExec4
+  rag:creates rag:embVec4 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk4 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 4"@pt .
+
+rag:embeddingExec5
+  rag:creates rag:embVec5 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk5 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 5"@pt .
+
+rag:embeddingExec6
+  rag:creates rag:embVec6 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk6 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 6"@pt .
+
+rag:embeddingExec7
+  rag:creates rag:embVec7 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk7 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 7"@pt .
+
+rag:embeddingExec8
+  rag:creates rag:embVec8 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk8 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 8"@pt .
+
+rag:embeddingExec9
+  rag:creates rag:embVec9 ;
+  rag:uses rag:embConf1 ;
+  rag:uses_1 rag:chunk9 ;
+  rag:uses_2 rag:embModel1 ;
+  rdf:type rag:EmbeddingExec ;
+  rdfs:label "EmbeddingExec 9"@pt .
+
+rag:filterPolicy1
+  rdf:type rag:FilterPolicy ;
+  rdfs:label "FilterPolicy 1"@pt .
+
+rag:finding1
+  rag:hasType rag:findingTypeSupported ;
+  rag:severity "low"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 1"@pt .
+
+rag:finding2
+  rag:hasType rag:findingTypeUnsupported ;
+  rag:severity "medium"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 2"@pt .
+
+rag:finding3
+  rag:hasType rag:findingTypeSupported ;
+  rag:severity "low"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 3"@pt .
+
+rag:finding4
+  rag:hasType rag:findingTypeUnsupported ;
+  rag:severity "low"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 4"@pt .
+
+rag:finding5
+  rag:hasType rag:findingTypeSupported ;
+  rag:severity "low"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 5"@pt .
+
+rag:finding6
+  rag:hasType rag:findingTypeSupported ;
+  rag:severity "medium"^^xsd:string ;
+  rdf:type rag:ValidationFinding ;
+  rdfs:label "ValidationFinding 6"@pt .
+
+rag:findingTypeSupported
+  rdf:type rag:FindingType ;
+  rdfs:label "Supported Claim"@pt .
+
+rag:findingTypeUnsupported
+  rdf:type rag:FindingType ;
+  rdfs:label "Unsupported Claim"@pt .
+
+rag:indexRun1
+  rdf:type rag:IndexingRun ;
+  rdfs:label "IndexingRun 1"@pt .
+
+rag:indexRun2
+  rdf:type rag:IndexingRun ;
+  rdfs:label "IndexingRun 2"@pt .
+
+rag:indexRun3
+  rdf:type rag:IndexingRun ;
+  rdfs:label "IndexingRun 3"@pt .
+
+rag:indexRun4
+  rdf:type rag:IndexingRun ;
+  rdfs:label "IndexingRun 4"@pt .
+
+rag:levelConfidential
+  rdf:type rag:ConfidentialLevel ;
+  rdfs:label "Nível Confidential"@pt .
+
+rag:levelInternal
+  rdf:type rag:ConfidentialLevel ;
+  rdfs:label "Nível Internal"@pt .
+
+rag:levelPublic
+  rdf:type rag:ConfidentialLevel ;
+  rdfs:label "Nível Public"@pt .
+
+rag:llmCall1
+  rag:creates rag:answer1 ;
+  rag:uses rag:prompt1 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 1"@pt .
+
+rag:llmCall2
+  rag:creates rag:answer2 ;
+  rag:uses rag:prompt2 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 2"@pt .
+
+rag:llmCall3
+  rag:creates rag:answer3 ;
+  rag:uses rag:prompt3 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 3"@pt .
+
+rag:llmCall4
+  rag:creates rag:answer4 ;
+  rag:uses rag:prompt4 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 4"@pt .
+
+rag:llmCall5
+  rag:creates rag:answer5 ;
+  rag:uses rag:prompt5 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 5"@pt .
+
+rag:llmCall6
+  rag:creates rag:answer6 ;
+  rag:uses rag:prompt6 ;
+  rdf:type rag:LLMCall ;
+  rdfs:label "LLMCall 6"@pt .
+
+rag:modelRel1
+  rdf:type rag:ModelRelease ;
+  rdfs:label "Model Release 1"@pt .
+
+rag:prompt1
+  rag:uses rag:ctx1 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 1"@pt .
+
+rag:prompt2
+  rag:uses rag:ctx2 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 2"@pt .
+
+rag:prompt3
+  rag:uses rag:ctx3 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 3"@pt .
+
+rag:prompt4
+  rag:uses rag:ctx4 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 4"@pt .
+
+rag:prompt5
+  rag:uses rag:ctx5 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 5"@pt .
+
+rag:prompt6
+  rag:uses rag:ctx6 ;
+  rdf:type rag:Prompt ;
+  rdfs:label "Prompt 6"@pt .
+
+rag:q1
+  rag:hasAnswer rag:answer1 ;
+  rag:triggers rag:retrievalExec1 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 1"@pt .
+
+rag:q2
+  rag:hasAnswer rag:answer2 ;
+  rag:triggers rag:retrievalExec2 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 2"@pt .
+
+rag:q3
+  rag:hasAnswer rag:answer3 ;
+  rag:triggers rag:retrievalExec3 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 3"@pt .
+
+rag:q4
+  rag:hasAnswer rag:answer4 ;
+  rag:triggers rag:retrievalExec4 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 4"@pt .
+
+rag:q5
+  rag:hasAnswer rag:answer5 ;
+  rag:triggers rag:retrievalExec5 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 5"@pt .
+
+rag:q6
+  rag:hasAnswer rag:answer6 ;
+  rag:triggers rag:retrievalExec6 ;
+  rdf:type rag:UserQuery ;
+  rdfs:label "UserQuery 6"@pt .
+
+rag:rc1
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk5 ;
+  rag:score "0.9376"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 1"@pt .
+
+rag:rc10
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk7 ;
+  rag:score "0.6076"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 10"@pt .
+
+rag:rc11
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk3 ;
+  rag:score "0.5352"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 11"@pt .
+
+rag:rc12
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk12 ;
+  rag:score "0.4076"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 12"@pt .
+
+rag:rc13
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk15 ;
+  rag:score "0.8713"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 13"@pt .
+
+rag:rc14
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk13 ;
+  rag:score "0.6692"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 14"@pt .
+
+rag:rc15
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk20 ;
+  rag:score "0.4124"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 15"@pt .
+
+rag:rc16
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk2 ;
+  rag:score "0.4060"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 16"@pt .
+
+rag:rc17
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk3 ;
+  rag:score "0.9814"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 17"@pt .
+
+rag:rc18
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk18 ;
+  rag:score "0.8430"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 18"@pt .
+
+rag:rc19
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk13 ;
+  rag:score "0.6788"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 19"@pt .
+
+rag:rc2
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk20 ;
+  rag:score "0.8943"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 2"@pt .
+
+rag:rc20
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk1 ;
+  rag:score "0.5549"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 20"@pt .
+
+rag:rc21
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk3 ;
+  rag:score "0.9403"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 21"@pt .
+
+rag:rc22
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk2 ;
+  rag:score "0.7870"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 22"@pt .
+
+rag:rc23
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk17 ;
+  rag:score "0.7171"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 23"@pt .
+
+rag:rc24
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk13 ;
+  rag:score "0.4862"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 24"@pt .
+
+rag:rc3
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk1 ;
+  rag:score "0.7383"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 3"@pt .
+
+rag:rc4
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk10 ;
+  rag:score "0.5565"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 4"@pt .
+
+rag:rc5
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk17 ;
+  rag:score "0.8999"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 5"@pt .
+
+rag:rc6
+  rag:rank "2"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk14 ;
+  rag:score "0.7072"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 6"@pt .
+
+rag:rc7
+  rag:rank "3"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk18 ;
+  rag:score "0.7009"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 7"@pt .
+
+rag:rc8
+  rag:rank "4"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk16 ;
+  rag:score "0.6475"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 8"@pt .
+
+rag:rc9
+  rag:rank "1"^^xsd:integer ;
+  rag:refersTo_1 rag:chunk1 ;
+  rag:score "0.7139"^^xsd:decimal ;
+  rdf:type rag:RetrievedChunk ;
+  rdfs:label "RetrievedChunk 9"@pt .
+
+rag:rerankExec1
+  rag:uses rag:rerankerConf2 ;
+  rag:uses_1 rag:ctx1 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 1"@pt .
+
+rag:rerankExec2
+  rag:uses rag:rerankerConf1 ;
+  rag:uses_1 rag:ctx2 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 2"@pt .
+
+rag:rerankExec3
+  rag:uses rag:rerankerConf1 ;
+  rag:uses_1 rag:ctx3 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 3"@pt .
+
+rag:rerankExec4
+  rag:uses rag:rerankerConf2 ;
+  rag:uses_1 rag:ctx4 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 4"@pt .
+
+rag:rerankExec5
+  rag:uses rag:rerankerConf2 ;
+  rag:uses_1 rag:ctx5 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 5"@pt .
+
+rag:rerankExec6
+  rag:uses rag:rerankerConf2 ;
+  rag:uses_1 rag:ctx6 ;
+  rdf:type rag:RerankingExec ;
+  rdfs:label "RerankingExec 6"@pt .
+
+rag:rerankerConf1
+  rdf:type rag:RerankerConfig ;
+  rdfs:label "RerankerConfig 1"@pt .
+
+rag:rerankerConf2
+  rdf:type rag:RerankerConfig ;
+  rdfs:label "RerankerConfig 2"@pt .
+
+rag:retrievalConf1
+  rag:strategy "hybrid"^^xsd:string ;
+  rag:topK "4"^^xsd:integer ;
+  rdf:type rag:RetrievalConfig ;
+  rdfs:label "RetrievalConfig 1"@pt .
+
+rag:retrievalConf2
+  rag:strategy "hybrid"^^xsd:string ;
+  rag:topK "4"^^xsd:integer ;
+  rdf:type rag:RetrievalConfig ;
+  rdfs:label "RetrievalConfig 2"@pt .
+
+rag:retrievalConf3
+  rag:strategy "vector"^^xsd:string ;
+  rag:topK "4"^^xsd:integer ;
+  rdf:type rag:RetrievalConfig ;
+  rdfs:label "RetrievalConfig 3"@pt .
+
+rag:retrievalExec1
+  rag:creates_1 rag:ctx1 ;
+  rag:uses rag:retrievalConf1 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 1"@pt .
+
+rag:retrievalExec2
+  rag:creates_1 rag:ctx2 ;
+  rag:uses rag:retrievalConf3 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 2"@pt .
+
+rag:retrievalExec3
+  rag:creates_1 rag:ctx3 ;
+  rag:uses rag:retrievalConf2 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 3"@pt .
+
+rag:retrievalExec4
+  rag:creates_1 rag:ctx4 ;
+  rag:uses rag:retrievalConf3 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 4"@pt .
+
+rag:retrievalExec5
+  rag:creates_1 rag:ctx5 ;
+  rag:uses rag:retrievalConf2 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 5"@pt .
+
+rag:retrievalExec6
+  rag:creates_1 rag:ctx6 ;
+  rag:uses rag:retrievalConf1 ;
+  rag:uses_1 rag:filterPolicy1 ;
+  rdf:type rag:RetrievalExec ;
+  rdfs:label "RetrievalExec 6"@pt .
+
+rag:valExec1
+  rag:creates rag:finding1 ;
+  rag:uses rag:answer1 ;
+  rag:uses_1 rag:ctx1 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 1"@pt .
+
+rag:valExec2
+  rag:creates rag:finding2 ;
+  rag:uses rag:answer2 ;
+  rag:uses_1 rag:ctx2 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 2"@pt .
+
+rag:valExec3
+  rag:creates rag:finding3 ;
+  rag:uses rag:answer3 ;
+  rag:uses_1 rag:ctx3 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 3"@pt .
+
+rag:valExec4
+  rag:creates rag:finding4 ;
+  rag:uses rag:answer4 ;
+  rag:uses_1 rag:ctx4 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 4"@pt .
+
+rag:valExec5
+  rag:creates rag:finding5 ;
+  rag:uses rag:answer5 ;
+  rag:uses_1 rag:ctx5 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 5"@pt .
+
+rag:valExec6
+  rag:creates rag:finding6 ;
+  rag:uses rag:answer6 ;
+  rag:uses_1 rag:ctx6 ;
+  rdf:type rag:ValidationExec ;
+  rdfs:label "ValidationExec 6"@pt .
+
+rag:vs1
+  rdf:type rag:VectorStore ;
+  rdfs:label "VectorStore 1"@pt .
+
+
+# --- PATCHES adicionados para compatibilidade com queries CQ1-CQ10 (demo q1) ---
+
+# CQ1: metadados dos chunks
+rag:chunk1 rag:chunkId "chunk1" ; rag:endOffset 500 .
+rag:chunk2 rag:chunkId "chunk2" ; rag:endOffset 1000 .
+rag:chunk3 rag:chunkId "chunk3" ; rag:endOffset 1500 .
+
+# CQ6: completar RetrievalConfig (alguns geradores sintéticos deixam campos opcionais ausentes)
+rag:retrievalConf1 rag:retrievalStrategy "dense-vector" ;
+                  rag:similarityMetric "cosine" ;
+                  rag:filters "confidential=false" .
+
+# CQ7: reranking (ligações e parâmetros)
+rag:rerankExec1 a rag:RerankingExec ;
+               rag:execId_4 "rerankExec1" .
+
+rag:rerankerConf1 a rag:RerankerConfig ;
+                 rag:topK 3 ;
+                 rag:filters_1 "none" ;
+                 rdfs:label "cross-encoder reranker"@en .
+
+rag:retrievalExec1 rag:partOf rag:rerankExec1 ;
+                  rag:uses_2 rag:rerankerConf1 .
+
+# Scores finais de reranking (reuso dos mesmos rc do contexto demo)
+rag:rc1 rag:finalRank 1 ; rag:finalScore 0.91 .
+rag:rc2 rag:finalRank 2 ; rag:finalScore 0.87 .
+rag:rc3 rag:finalRank 3 ; rag:finalScore 0.82 .
+
+# CQ9/CQ10: achados de validação e citações/rastreabilidade
+rag:answer1 rag:hasFinding rag:finding1 ;
+           rag:cites rag:cit1, rag:cit2 .
+
+rag:ctx1 rag:about rag:finding1 .
+
+rag:finding1 a rag:ValidationFinding ;
+           rag:produces_1 rag:valExec1 .
+
+rag:valExec1 a rag:ValidationExec ;
+           rag:validates rag:answer1 .
+
+rag:findingTypeUnsupported a rag:FindingType ;
+                          rag:hasType rag:finding1 .
+
+rag:cit1 a rag:Citation ;
+        rag:refersTo rag:rc1 ;
+        rag:span "Trecho evidencial 1" ;
+        rag:startOffset 0 ;
+        rag:confidence 0.95 .
+
+rag:cit2 a rag:Citation ;
+        rag:refersTo rag:rc2 ;
+        rag:span "Trecho evidencial 2" ;
+        rag:startOffset 120 ;
+        rag:confidence 0.89 .
+
+# CQ8: restrição de confidencialidade (um documento/chunk sigiloso para demonstrar consulta)
+rag:confLevel1 a rag:ConfidentialLevel ;
+             rag:inheresIn rag:doc1 .
+
+# Se seu T-Box/A-box usa a variante 'hasConfidentialLevel', mantemos também:
+rag:doc1 rag:hasConfidentialLevel rag:confLevel1 .
 
-<http://purl.org/mrrobson9/rag#> rdf:type owl:Ontology ;
-                                 owl:imports gufo: .
 
-#################################################################
-#    Object Properties
-#################################################################
-
-###  http://purl.org/mrrobson9/rag##about
-:about rdf:type owl:ObjectProperty ;
-       rdfs:domain :RetrievedContext ;
-       rdfs:range :ValidationFinding ;
-       rdfs:label "about "@en .
-
-
-###  http://purl.org/mrrobson9/rag##applies
-:applies rdf:type owl:ObjectProperty ;
-         rdfs:domain :FilterPolicy ;
-         rdfs:range :RetrievalExec ;
-         rdfs:label "applies"@en .
-
-
-###  http://purl.org/mrrobson9/rag##cites
-:cites rdf:type owl:ObjectProperty ;
-       rdfs:domain :GeneratedAnswer ;
-       rdfs:range :Citation ;
-       rdfs:label "cites"@en .
-
-
-###  http://purl.org/mrrobson9/rag##contains
-:contains rdf:type owl:ObjectProperty ;
-          rdfs:domain :RetrievedContext ;
-          rdfs:range :Chunk ;
-          rdfs:label "contains"@en .
-
-
-###  http://purl.org/mrrobson9/rag##creates
-:creates rdf:type owl:ObjectProperty ;
-         rdfs:domain :ChunkingExec ;
-         rdfs:range :Chunk ;
-         rdfs:label "creates"@en .
-
-
-###  http://purl.org/mrrobson9/rag##creates_1
-:creates_1 rdf:type owl:ObjectProperty ;
-           rdfs:domain :RetrievalExec ;
-           rdfs:range :RetrievedContext ;
-           rdfs:label "creates"@en .
-
-
-###  http://purl.org/mrrobson9/rag##creates_2
-:creates_2 rdf:type owl:ObjectProperty ;
-           rdfs:domain :LLMCall ;
-           rdfs:range :GeneratedAnswer ;
-           rdfs:label "creates"@en .
-
-
-###  http://purl.org/mrrobson9/rag##creates_3
-:creates_3 rdf:type owl:ObjectProperty ;
-           rdfs:domain :EmbeddingExec ;
-           rdfs:range :EmbeddingVector ;
-           rdfs:label "creates"@en .
-
-
-###  http://purl.org/mrrobson9/rag##evidenceItem
-:evidenceItem rdf:type owl:ObjectProperty ;
-              rdfs:domain :RetrievedChunk ;
-              rdfs:range :ValidationFinding ;
-              rdfs:label "evidenceItem "@en .
-
-
-###  http://purl.org/mrrobson9/rag##hasChunk
-:hasChunk rdf:type owl:ObjectProperty ;
-          rdfs:domain :Document ;
-          rdfs:range :Chunk ;
-          rdfs:label "hasChunk"@en .
-
-
-###  http://purl.org/mrrobson9/rag##hasFinding
-:hasFinding rdf:type owl:ObjectProperty ;
-            rdfs:domain :GeneratedAnswer ;
-            rdfs:range :ValidationFinding ;
-            rdfs:label "hasFinding "@en .
-
-
-###  http://purl.org/mrrobson9/rag##hasItem
-:hasItem rdf:type owl:ObjectProperty ;
-         rdfs:domain :RetrievedContext ;
-         rdfs:range :RetrievedChunk ;
-         rdfs:label "hasItem"@en .
-
-
-###  http://purl.org/mrrobson9/rag##hasRelease
-:hasRelease rdf:type owl:ObjectProperty ;
-            rdfs:domain :EmbeddingModel ;
-            rdfs:range :ModelRelease ;
-            rdfs:label "hasRelease"@en .
-
-
-###  http://purl.org/mrrobson9/rag##hasType
-:hasType rdf:type owl:ObjectProperty ;
-         rdfs:domain :FindingType ;
-         rdfs:range :ValidationFinding ;
-         rdfs:label "hasType "@en .
-
-
-###  http://purl.org/mrrobson9/rag##includes
-:includes rdf:type owl:ObjectProperty ;
-          rdfs:domain :IndexingRun ;
-          rdfs:range :ChunkingExec ;
-          rdfs:label "includes "@en .
-
-
-###  http://purl.org/mrrobson9/rag##includes_1
-:includes_1 rdf:type owl:ObjectProperty ;
-            rdfs:domain :IndexingRun ;
-            rdfs:range :Chunk ;
-            rdfs:label "includes"@en .
-
-
-###  http://purl.org/mrrobson9/rag##includes_2
-:includes_2 rdf:type owl:ObjectProperty ;
-            rdfs:domain :IndexingRun ;
-            rdfs:range :EmbeddingExec ;
-            rdfs:label "includes "@en .
-
-
-###  http://purl.org/mrrobson9/rag##inheresIn
-:inheresIn rdf:type owl:ObjectProperty ;
-           rdfs:domain :ConfidentialLevel ;
-           rdfs:range :Document ;
-           rdfs:label "inheresIn"@en .
-
-
-###  http://purl.org/mrrobson9/rag##inputTo
-:inputTo rdf:type owl:ObjectProperty ;
-         rdfs:domain :Prompt ;
-         rdfs:range :LLMCall ;
-         rdfs:label "inputTo "@en .
-
-
-###  http://purl.org/mrrobson9/rag##isEmbeddingOf
-:isEmbeddingOf rdf:type owl:ObjectProperty ;
-               rdfs:domain :Chunk ;
-               rdfs:range :EmbeddingVector ;
-               rdfs:label "isEmbeddingOf"@en .
-
-
-###  http://purl.org/mrrobson9/rag##partOf
-:partOf rdf:type owl:ObjectProperty ;
-        rdfs:domain :RetrievalExec ;
-        rdfs:range :RerankingExec ;
-        rdfs:label "partOf"@en .
-
-
-###  http://purl.org/mrrobson9/rag##processes
-:processes rdf:type owl:ObjectProperty ;
-           rdfs:domain :ChunkingExec ;
-           rdfs:range :Document ;
-           rdfs:label "processes"@en .
-
-
-###  http://purl.org/mrrobson9/rag##processes_1
-:processes_1 rdf:type owl:ObjectProperty ;
-             rdfs:domain :EmbeddingExec ;
-             rdfs:range :Chunk ;
-             rdfs:label "processes"@en .
-
-
-###  http://purl.org/mrrobson9/rag##produces
-:produces rdf:type owl:ObjectProperty ;
-          rdfs:domain :RetrievalExec ;
-          rdfs:range :RetrievedChunk ;
-          rdfs:label "produces"@en .
-
-
-###  http://purl.org/mrrobson9/rag##produces_1
-:produces_1 rdf:type owl:ObjectProperty ;
-            rdfs:domain :ValidationFinding ;
-            rdfs:range :ValidationExec ;
-            rdfs:label "produces"@en .
-
-
-###  http://purl.org/mrrobson9/rag##refersTo
-:refersTo rdf:type owl:ObjectProperty ;
-          rdfs:domain :Citation ;
-          rdfs:range :RetrievedChunk ;
-          rdfs:label "refersTo"@en .
-
-
-###  http://purl.org/mrrobson9/rag##refersTo_1
-:refersTo_1 rdf:type owl:ObjectProperty ;
-            rdfs:domain :RetrievedChunk ;
-            rdfs:range :Chunk ;
-            rdfs:label "refersTo"@en .
-
-
-###  http://purl.org/mrrobson9/rag##storedIn
-:storedIn rdf:type owl:ObjectProperty ;
-          rdfs:domain :EmbeddingVector ;
-          rdfs:range :VectorStore ;
-          rdfs:label "storedIn"@en .
-
-
-###  http://purl.org/mrrobson9/rag##triggers
-:triggers rdf:type owl:ObjectProperty ;
-          rdfs:domain :UserQuery ;
-          rdfs:range :RetrievalExec ;
-          rdfs:label "triggers     "@en .
-
-
-###  http://purl.org/mrrobson9/rag##usedIn
-:usedIn rdf:type owl:ObjectProperty ;
-        rdfs:domain :RetrievedContext ;
-        rdfs:range :Prompt ;
-        rdfs:label "usedIn "@en .
-
-
-###  http://purl.org/mrrobson9/rag##uses
-:uses rdf:type owl:ObjectProperty ;
-      rdfs:domain :ChunkingConfiguration ;
-      rdfs:range :ChunkingExec ;
-      rdfs:label "uses "@en .
-
-
-###  http://purl.org/mrrobson9/rag##uses_1
-:uses_1 rdf:type owl:ObjectProperty ;
-        rdfs:domain :EmbeddingExec ;
-        rdfs:range :ModelRelease ;
-        rdfs:label "uses"@en .
-
-
-###  http://purl.org/mrrobson9/rag##uses_2
-:uses_2 rdf:type owl:ObjectProperty ;
-        rdfs:domain :RetrievalExec ;
-        rdfs:range :RerankerConfig ;
-        rdfs:label "uses"@en .
-
-
-###  http://purl.org/mrrobson9/rag##uses_3
-:uses_3 rdf:type owl:ObjectProperty ;
-        rdfs:domain :RetrievalExec ;
-        rdfs:range :RetrievalConfig ;
-        rdfs:label "uses"@en .
-
-
-###  http://purl.org/mrrobson9/rag##uses_4
-:uses_4 rdf:type owl:ObjectProperty ;
-        rdfs:domain :LLMCall ;
-        rdfs:range :GenerationConfig ;
-        rdfs:label "uses"@en .
-
-
-###  http://purl.org/mrrobson9/rag##uses_5
-:uses_5 rdf:type owl:ObjectProperty ;
-        rdfs:domain :EmbeddingExec ;
-        rdfs:range :EmbeddingConfiguration ;
-        rdfs:label "uses"@en .
-
-
-###  http://purl.org/mrrobson9/rag##validates
-:validates rdf:type owl:ObjectProperty ;
-           rdfs:domain :ValidationExec ;
-           rdfs:range :GeneratedAnswer ;
-           rdfs:label "validates"@en .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  http://purl.org/mrrobson9/rag##Level
-:Level rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf gufo:hasQualityValue ;
-       rdfs:domain :ConfidentialLevel ;
-       rdfs:label "Level"@en .
-
-
-###  http://purl.org/mrrobson9/rag##allowConfidential
-:allowConfidential rdf:type owl:DatatypeProperty ;
-                   rdfs:subPropertyOf gufo:hasQualityValue ;
-                   rdfs:domain :FilterPolicy ;
-                   rdfs:label "allowConfidential"@en .
-
-
-###  http://purl.org/mrrobson9/rag##answerId
-:answerId rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf gufo:hasQualityValue ;
-          rdfs:domain :GeneratedAnswer ;
-          rdfs:label "answerId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##batchSize
-:batchSize rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :EmbeddingConfiguration ;
-           rdfs:label "batchSize"@en .
-
-
-###  http://purl.org/mrrobson9/rag##callId
-:callId rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf gufo:hasQualityValue ;
-        rdfs:domain :LLMCall ;
-        rdfs:label "callId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##chunkId
-:chunkId rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf gufo:hasQualityValue ;
-         rdfs:domain :Chunk ;
-         rdfs:label "chunkId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##chunkSize
-:chunkSize rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :ChunkingConfiguration ;
-           rdfs:label "chunkSize"@en .
-
-
-###  http://purl.org/mrrobson9/rag##citeId
-:citeId rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf gufo:hasQualityValue ;
-        rdfs:domain :Citation ;
-        rdfs:label "citeId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##confidence
-:confidence rdf:type owl:DatatypeProperty ;
-            rdfs:subPropertyOf gufo:hasQualityValue ;
-            rdfs:domain :Citation ;
-            rdfs:label "confidence"@en .
-
-
-###  http://purl.org/mrrobson9/rag##contextId
-:contextId rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :RetrievedContext ;
-           rdfs:label "contextId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##createdAt
-:createdAt rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :GeneratedAnswer ;
-           rdfs:label "createdAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##date
-:date rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf gufo:hasQualityValue ;
-      rdfs:domain :ModelRelease ;
-      rdfs:label "date"@en .
-
-
-###  http://purl.org/mrrobson9/rag##distance
-:distance rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf gufo:hasQualityValue ;
-          rdfs:domain :RetrievedChunk ;
-          rdfs:label "distance"@en .
-
-
-###  http://purl.org/mrrobson9/rag##docId
-:docId rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf gufo:hasQualityValue ;
-       rdfs:domain :Document ;
-       rdfs:label "docId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##endOffset
-:endOffset rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :Chunk ;
-           rdfs:label "endOffset"@en .
-
-
-###  http://purl.org/mrrobson9/rag##endedAt
-:endedAt rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf gufo:hasQualityValue ;
-         rdfs:domain :EmbeddingExec ;
-         rdfs:label "endedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##endedAt_1
-:endedAt_1 rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :IndexingRun ;
-           rdfs:label "endedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##endedAt_2
-:endedAt_2 rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :LLMCall ;
-           rdfs:label "endedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##endedAt_3
-:endedAt_3 rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :ChunkingExec ;
-           rdfs:label "endedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##endedAt_4
-:endedAt_4 rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :RetrievalExec ;
-           rdfs:label "endedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##endedAt_5
-:endedAt_5 rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :ValidationExec ;
-           rdfs:label "endedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##execId
-:execId rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf gufo:hasQualityValue ;
-        rdfs:domain :ValidationExec ;
-        rdfs:label "execId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##execId_1
-:execId_1 rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf gufo:hasQualityValue ;
-          rdfs:domain :ChunkingExec ;
-          rdfs:label "execId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##execId_2
-:execId_2 rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf gufo:hasQualityValue ;
-          rdfs:domain :EmbeddingExec ;
-          rdfs:label "execId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##execId_3
-:execId_3 rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf gufo:hasQualityValue ;
-          rdfs:domain :RetrievalExec ;
-          rdfs:label "execId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##execId_4
-:execId_4 rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf gufo:hasQualityValue ;
-          rdfs:domain :RerankingExec ;
-          rdfs:label "execId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##filters
-:filters rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf gufo:hasQualityValue ;
-         rdfs:domain :RetrievalConfig ;
-         rdfs:label "filters"@en .
-
-
-###  http://purl.org/mrrobson9/rag##filters_1
-:filters_1 rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :RerankerConfig ;
-           rdfs:label "filters"@en .
-
-
-###  http://purl.org/mrrobson9/rag##findingId
-:findingId rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :ValidationFinding ;
-           rdfs:label "findingId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##hash
-:hash rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf gufo:hasQualityValue ;
-      rdfs:domain :ModelRelease ;
-      rdfs:label "hash"@en .
-
-
-###  http://purl.org/mrrobson9/rag##maxTokens
-:maxTokens rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :GenerationConfig ;
-           rdfs:label "maxTokens"@en .
-
-
-###  http://purl.org/mrrobson9/rag##method
-:method rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf gufo:hasQualityValue ;
-        rdfs:domain :ValidationExec ;
-        rdfs:label "method"@en .
-
-
-###  http://purl.org/mrrobson9/rag##minChunkSize
-:minChunkSize rdf:type owl:DatatypeProperty ;
-              rdfs:subPropertyOf gufo:hasQualityValue ;
-              rdfs:domain :ChunkingConfiguration ;
-              rdfs:label "minChunkSize"@en .
-
-
-###  http://purl.org/mrrobson9/rag##minConfidentialLevel
-:minConfidentialLevel rdf:type owl:DatatypeProperty ;
-                      rdfs:subPropertyOf gufo:hasQualityValue ;
-                      rdfs:domain :FilterPolicy ;
-                      rdfs:label "minConfidentialLevel"@en .
-
-
-###  http://purl.org/mrrobson9/rag##modelName
-:modelName rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :GenerationConfig ;
-           rdfs:label "modelName"@en .
-
-
-###  http://purl.org/mrrobson9/rag##modelName_1
-:modelName_1 rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf gufo:hasQualityValue ;
-             rdfs:domain :LLMCall ;
-             rdfs:label "modelName"@en .
-
-
-###  http://purl.org/mrrobson9/rag##name
-:name rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf gufo:hasQualityValue ;
-      rdfs:domain :FilterPolicy ;
-      rdfs:label "name"@en .
-
-
-###  http://purl.org/mrrobson9/rag##name_1
-:name_1 rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf gufo:hasQualityValue ;
-        rdfs:domain :FindingType ;
-        rdfs:label "name"@en .
-
-
-###  http://purl.org/mrrobson9/rag##name_2
-:name_2 rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf gufo:hasQualityValue ;
-        rdfs:domain :EmbeddingModel ;
-        rdfs:label "name"@en .
-
-
-###  http://purl.org/mrrobson9/rag##normalize
-:normalize rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :EmbeddingConfiguration ;
-           rdfs:label "normalize"@en .
-
-
-###  http://purl.org/mrrobson9/rag##overlap
-:overlap rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf gufo:hasQualityValue ;
-         rdfs:domain :ChunkingConfiguration ;
-         rdfs:label "overlap"@en .
-
-
-###  http://purl.org/mrrobson9/rag##pooling
-:pooling rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf gufo:hasQualityValue ;
-         rdfs:domain :EmbeddingConfiguration ;
-         rdfs:label "pooling"@en .
-
-
-###  http://purl.org/mrrobson9/rag##precision
-:precision rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :EmbeddingConfiguration ;
-           rdfs:label "precision"@en .
-
-
-###  http://purl.org/mrrobson9/rag##provider
-:provider rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf gufo:hasQualityValue ;
-          rdfs:domain :EmbeddingModel ;
-          rdfs:label "provider"@en .
-
-
-###  http://purl.org/mrrobson9/rag##queryId
-:queryId rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf gufo:hasQualityValue ;
-         rdfs:domain :UserQuery ;
-         rdfs:label "queryId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##quote
-:quote rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf gufo:hasQualityValue ;
-       rdfs:domain :Citation ;
-       rdfs:label "quote"@en .
-
-
-###  http://purl.org/mrrobson9/rag##rank
-:rank rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf gufo:hasQualityValue ;
-      rdfs:domain :RetrievedChunk ;
-      rdfs:label "rank"@en .
-
-
-###  http://purl.org/mrrobson9/rag##rationale
-:rationale rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :ValidationFinding ;
-           rdfs:label "rationale"@en .
-
-
-###  http://purl.org/mrrobson9/rag##retrievalStrategy
-:retrievalStrategy rdf:type owl:DatatypeProperty ;
-                   rdfs:subPropertyOf gufo:hasQualityValue ;
-                   rdfs:domain :RetrievalConfig ;
-                   rdfs:label "retrievalStrategy"@en .
-
-
-###  http://purl.org/mrrobson9/rag##runId
-:runId rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf gufo:hasQualityValue ;
-       rdfs:domain :IndexingRun ;
-       rdfs:label "runId"@en .
-
-
-###  http://purl.org/mrrobson9/rag##score
-:score rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf gufo:hasQualityValue ;
-       rdfs:domain :RetrievedChunk ;
-       rdfs:label "score"@en .
-
-
-###  http://purl.org/mrrobson9/rag##separators
-:separators rdf:type owl:DatatypeProperty ;
-            rdfs:subPropertyOf gufo:hasQualityValue ;
-            rdfs:domain :ChunkingConfiguration ;
-            rdfs:label "separators"@en .
-
-
-###  http://purl.org/mrrobson9/rag##severity
-:severity rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf gufo:hasQualityValue ;
-          rdfs:domain :ValidationFinding ;
-          rdfs:label "severity"@en .
-
-
-###  http://purl.org/mrrobson9/rag##similarityMetric
-:similarityMetric rdf:type owl:DatatypeProperty ;
-                  rdfs:subPropertyOf gufo:hasQualityValue ;
-                  rdfs:domain :RetrievalConfig ;
-                  rdfs:label "similarityMetric"@en .
-
-
-###  http://purl.org/mrrobson9/rag##sourceUri
-:sourceUri rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :Document ;
-           rdfs:label "sourceUri"@en .
-
-
-###  http://purl.org/mrrobson9/rag##span
-:span rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf gufo:hasQualityValue ;
-      rdfs:domain :Citation ;
-      rdfs:label "span"@en .
-
-
-###  http://purl.org/mrrobson9/rag##startOffset
-:startOffset rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf gufo:hasQualityValue ;
-             rdfs:domain :Citation ;
-             rdfs:label "startOffset"@en .
-
-
-###  http://purl.org/mrrobson9/rag##startedAt
-:startedAt rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :LLMCall ;
-           rdfs:label "startedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##startedAt_1
-:startedAt_1 rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf gufo:hasQualityValue ;
-             rdfs:domain :EmbeddingExec ;
-             rdfs:label "startedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##startedAt_2
-:startedAt_2 rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf gufo:hasQualityValue ;
-             rdfs:domain :RetrievalExec ;
-             rdfs:label "startedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##startedAt_3
-:startedAt_3 rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf gufo:hasQualityValue ;
-             rdfs:domain :IndexingRun ;
-             rdfs:label "startedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##startedAt_4
-:startedAt_4 rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf gufo:hasQualityValue ;
-             rdfs:domain :ValidationExec ;
-             rdfs:label "startedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##startedAt_5
-:startedAt_5 rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf gufo:hasQualityValue ;
-             rdfs:domain :ChunkingExec ;
-             rdfs:label "startedAt"@en .
-
-
-###  http://purl.org/mrrobson9/rag##status
-:status rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf gufo:hasQualityValue ;
-        rdfs:domain :IndexingRun ;
-        rdfs:label "status"@en .
-
-
-###  http://purl.org/mrrobson9/rag##strategy
-:strategy rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf gufo:hasQualityValue ;
-          rdfs:domain :ChunkingConfiguration ;
-          rdfs:label "strategy"@en .
-
-
-###  http://purl.org/mrrobson9/rag##systemRole
-:systemRole rdf:type owl:DatatypeProperty ;
-            rdfs:subPropertyOf gufo:hasQualityValue ;
-            rdfs:domain :GenerationConfig ;
-            rdfs:label "systemRole"@en .
-
-
-###  http://purl.org/mrrobson9/rag##temperature
-:temperature rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf gufo:hasQualityValue ;
-             rdfs:domain :LLMCall ;
-             rdfs:label "temperature"@en .
-
-
-###  http://purl.org/mrrobson9/rag##temperature_1
-:temperature_1 rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf gufo:hasQualityValue ;
-               rdfs:domain :GenerationConfig ;
-               rdfs:label "temperature"@en .
-
-
-###  http://purl.org/mrrobson9/rag##text
-:text rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf gufo:hasQualityValue ;
-      rdfs:domain :UserQuery ;
-      rdfs:label "text"@en .
-
-
-###  http://purl.org/mrrobson9/rag##text_1
-:text_1 rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf gufo:hasQualityValue ;
-        rdfs:domain :GeneratedAnswer ;
-        rdfs:label "text"@en .
-
-
-###  http://purl.org/mrrobson9/rag##timestamp
-:timestamp rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf gufo:hasQualityValue ;
-           rdfs:domain :UserQuery ;
-           rdfs:label "timestamp"@en .
-
-
-###  http://purl.org/mrrobson9/rag##title
-:title rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf gufo:hasQualityValue ;
-       rdfs:domain :Document ;
-       rdfs:label "title"@en .
-
-
-###  http://purl.org/mrrobson9/rag##topK
-:topK rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf gufo:hasQualityValue ;
-      rdfs:domain :RerankerConfig ;
-      rdfs:label "topK"@en .
-
-
-###  http://purl.org/mrrobson9/rag##topK_1
-:topK_1 rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf gufo:hasQualityValue ;
-        rdfs:domain :RetrievalConfig ;
-        rdfs:label "topK"@en .
-
-
-###  http://purl.org/mrrobson9/rag##type
-:type rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf gufo:hasQualityValue ;
-      rdfs:domain :ValidationFinding ;
-      rdfs:label "type"@en .
-
-
-###  http://purl.org/mrrobson9/rag##version
-:version rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf gufo:hasQualityValue ;
-         rdfs:domain :ModelRelease ;
-         rdfs:label "version"@en .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  
-:Chunk rdf:type owl:Class ;
-       rdfs:subClassOf gufo:FunctionalComplex ;
-       rdfs:comment "Menor unidade/parte resultante da divisão realizada em um córpus de documento(s)."@pt-br ,
-                    "Smallest unit/part resulting from the division performed on a document corpus."@en .
-                   
-
-###  
-:ChunkingConfiguration rdf:type owl:Class ;
-                       rdfs:subClassOf gufo:FunctionalComplex ;
-                       rdfs:comment "Parâmetros de configuração que regem o processo de divisão/particição do córpus de documento(s)."@pt-br ,
-                                    "Configuration parameters that govern the division/partitioning process of the document corpus."@en .
-
-###  
-:ChunkingExec rdf:type owl:Class ;
-              rdfs:subClassOf gufo:Event ;
-              rdfs:comment "Processo de divisão/particição do córpus de documento(s) que gerará o Chunk."@pt-br ,
-                           "Process of dividing/partitioning the document corpus that will generate the Chunk."@en .
-
-###  
-:Citation rdf:type owl:Class ;
-          rdfs:subClassOf gufo:Relator ;
-          rdfs:subClassOf gufo:Event ;
-          rdfs:comment "Referência/correspondência entre a resposta gerada e a unidade particionada do córpus de documento (chunk)."@pt-br ,
-                        "Reference/correspondence between the generated answer and the partitioned unit of the document corpus (chunk)."@en .
-
-###  
-:ConfidentialLevel rdf:type owl:Class ;
-                   rdfs:subClassOf gufo:Quality ;
-                   rdfs:comment "Qualidade intrínseca de um odcumento que define seu grau de restrição ou sigilo."@pt-br ,
-                                "Intrinsic quality of a document that defines its degree of restriction or confidentiality."@en .
-
-###  
-:Document rdf:type owl:Class ;
-          rdfs:subClassOf gufo:FunctionalComplex ;
-          rdfs:comment "Coleção estruturada e representativa de registros textuais."@pt-br ,
-                        "Structured and representative collection of textual records."@en .
-
-###  
-:EmbeddingConfiguration rdf:type owl:Class ;
-                        rdfs:subClassOf gufo:FunctionalComplex ;
-                        rdfs:comment "Parâmetros de configuração que regem o processo codificação dos chunks em vetores matemáticos (EmbeddingExec)."@pt-br ,
-                                "Configuration parameters that govern the encoding process of chunks into mathematical vectors (EmbeddingExec)."@en .
-
-###  
-:EmbeddingExec rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Event ;
-               rdfs:comment "Processo de codificação dos chunks em vetores matemáticos e aramazenamento desses vetores em um banco de dados vetorial (VectorStore)."@pt-br ,
-                            "Process of encoding chunks into mathematical vectors and storing these vectors in a vector database (VectorStore)."@en .
-
-###  
-:EmbeddingModel rdf:type owl:Class ;
-                rdfs:subClassOf gufo:FunctionalComplex ;
-                rdfs:comment "Molde/formato/função matemático(a) que irá reger como o a informação original será convertida na sequência de números comprensível pelo sistema."@pt-br ,
-                             "Mathematical mold/format/function that will govern how the original information is converted into the sequence of numbers understandable by the system."@en .
-
-###  
-:EmbeddingVector rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:FunctionalComplex ;
-                 rdfs:comment "Vetor de informações codificadas resultante do processo EmbeddingExec."@pt-br ,
-                                "Vector of encoded information resulting from the EmbeddingExec process."@en .
-
-###  
-:FilterPolicy rdf:type owl:Class ;
-              rdfs:subClassOf gufo:FunctionalComplex ;
-              rdfs:comment "Políticas ou regras de segurança aplicadas durante a recuperação de dados para restringir ou permitir acesso a certos documentos utilizando níveis de confidencialidade."@pt-br ,
-                            "Security policies or rules applied during data retrieval to restrict or allow access to certain documents using confidentiality levels."@en .
-
-###  
-:FindingType rdf:type owl:Class ;
-             rdfs:subClassOf gufo:FunctionalComplex ;
-             rdfs:comment "Categoria ou taxonomia de uma descoberta de validação."@pt-br ,
-                          "Category or taxonomy of a validation finding."@en .
-
-###  
-:GeneratedAnswer rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:FunctionalComplex ;
-                 rdfs:comment "Resposta final em linguagem natural produzida pelo modelo de linguagem (LLM) como resultado do processamento da pergunta do usuário combinada ao contexto recuperado."@pt-br ,
-                                "Final natural language response produced by the language model (LLM) as a result of processing the user query combined with the retrieved context."@en .
-
-###  
-:GenerationConfig rdf:type owl:Class ;
-                  rdfs:subClassOf gufo:FunctionalComplex ;
-                  rdfs:comment "Parâmetros que controlam o comportamento do LLM durante a geração da resposta."@pt-br ,
-                                "Parameters that control the behavior of the LLM during answer generation."@en .
-
-###  
-:IndexingRun rdf:type owl:Class ;
-             rdfs:subClassOf gufo:Event ;
-             rdfs:comment "Evento macro de processamento que engloba a rotina completa de preparação dos documentos, incluindo a divisão (ChunkingExec) e a vetorização (EmbeddingExec)."@pt-br ,
-                           "Macro processing event that encompasses the entire document preparation routine, including division (ChunkingExec) and vectorization (EmbeddingExec)."@en .
-
-###  
-:LLMCall rdf:type owl:Class ;
-         rdfs:subClassOf gufo:Event ;
-         rdfs:comment "Evento computacional de invocação e execução de um Grande Modelo de Linguagem (LLM) para processar o Prompt e retornar a GeneratedAnswer."@pt-br ,
-                      "Computational event of invoking and executing a Large Language Model (LLM) to process the Prompt and return the GeneratedAnswer."@en .
-
-###  
-:ModelRelease rdf:type owl:Class ;
-              rdfs:subClassOf gufo:FunctionalComplex ;
-              rdfs:comment "Versão específica, consolidada e publicada de um modelo de inteligência artificial. Carrega os pesos matemáticos exatos treinados até aquela data."@pt-br ,
-                           "Specific, consolidated, and published version of an artificial intelligence model. It carries the exact mathematical weights trained up to that date."@en .
-
-###  
-:Prompt rdf:type owl:Class ;
-        rdfs:subClassOf gufo:FunctionalComplex ;
-        rdfs:comment "Estrutura textual final de instrução enviada ao LLM, que encapsula a pergunta original do usuário, as regras de geração e o contexto factual recuperado (RetrievedContext)."@pt-br ,
-                      "Final textual instruction structure sent to the LLM, which encapsulates the original user query, the generation rules, and the retrieved factual context (RetrievedContext)."@en .
-
-###  
-:RerankerConfig rdf:type owl:Class ;
-                rdfs:subClassOf gufo:FunctionalComplex ;
-                rdfs:comment "Parâmetros de configuração para o processo de re-ranqueamento, definindo como os chunks previamente recuperados serão reordenados ou filtrados."@pt-br ,
-                                "Configuration parameters for the re-ranking process, defining how the previously retrieved chunks will be reordered or filtered."@en .
-
-###  
-:RerankingExec rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Event ;
-               rdfs:comment "Processo de reordenação ou refino da lista inicial de chunks recuperados, aplicando um modelo secundário mais custoso para garantir maior precisão antes de formar o contexto final."@pt-br ,
-                                "Process of reordering or refining the initial list of retrieved chunks, applying a secondary, more costly model to ensure greater precision before forming the final context."@en .
-
-###  
-:RetrievalConfig rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:FunctionalComplex ;
-                 rdfs:comment "Parâmetros e estratégias que regem a busca vetorial no VectorStore, como a métrica de similaridade matemática e o número de resultados esperados."@pt-br ,
-                                "Parameters and strategies that govern the vector search in the VectorStore, such as the mathematical similarity metric and the expected number of results."@en .
-
-###  
-:RetrievalExec rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Event ;
-               rdfs:comment "Processo de busca que compara matematicamente o vetor da query do usuário com os vetores armazenados no VectorStore para extrair os chunks mais relevantes."@pt-br ,
-                            "Search process that mathematically compares the user query vector with the vectors stored in the VectorStore to extract the most relevant chunks."@en .
-
-###  
-:RetrievedChunk rdf:type owl:Class ;
-                rdfs:subClassOf gufo:Relator ;
-                rdfs:comment "Papel assumido por um Chunk específico após ser selecionado pelo processo de recuperação devido à sua alta relevância matemática (score/distância) em relação à query."@pt-br ,
-                             "Role assumed by a specific Chunk after being selected by the retrieval process due to its high mathematical relevance (score/distance) in relation to the query."@en .
-
-###  
-:RetrievedContext rdf:type owl:Class ;
-                  rdfs:subClassOf gufo:FunctionalComplex ;
-                  rdfs:comment "Agrupamento consolidado dos chunks recuperados que servirá como a base de conhecimento factual fornecida ao LLM para fundamentar a resposta."@pt-br ,
-                                "Consolidated grouping of retrieved chunks that will serve as the factual knowledge base provided to the LLM to ground the answer."@en .
-
-###  
-:UserQuery rdf:type owl:Class ;
-           rdfs:subClassOf gufo:FunctionalComplex ;
-           rdfs:comment "Pergunta, instrução ou termo de busca inicial formulado e submetido pelo usuário humano ou sistema cliente."@pt-br ,
-                        "Initial question, instruction, or search term formulated and submitted by the human user or client system."@en .
-
-###  
-:ValidationExec rdf:type owl:Class ;
-                rdfs:subClassOf gufo:Event ;
-                rdfs:comment "Processo metodológico ou computacional de avaliar a GeneratedAnswer contra a UserQuery e o RetrievedContext, verificando se há suporte factual ou alucinações (gerando ValidationFindings).."@pt-br ,
-                             "Methodological or computational process of evaluating the GeneratedAnswer against the UserQuery and the RetrievedContext, verifying if there is factual support or hallucinations (generating ValidationFindings)."@en .
-
-###  
-:ValidationFinding rdf:type owl:Class ;
-                   rdfs:subClassOf gufo:FunctionalComplex ;
-                   rdfs:comment "Evidência, resultado ou diagnóstico gerado pelo processo de validação, contendo a justificativa e a severidade sobre a qualidade ou precisão da resposta gerada."@pt-br ,
-                                "Evidence, result, or diagnosis generated by the validation process, containing the rationale and severity regarding the quality or precision of the generated answer."@en .
-
-###  
-:VectorStore rdf:type owl:Class ;
-             rdfs:subClassOf gufo:FunctionalComplex ;
-             rdfs:comment "Banco de dados otimizado e especializado no armazenamento, indexação e busca eficiente de representações matemáticas de alta dimensionalidade (EmbeddingVectors)."@pt-br ,
-                          "Database optimized and specialized in the storage, indexing, and efficient search of high-dimensional mathematical representations (EmbeddingVectors)."@en .
-
-#################################################################
-#    Individuals
-#################################################################
-
-###  http://purl.org/mrrobson9/rag##Chunk
-:Chunk rdf:type owl:NamedIndividual ,
-                gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##ChunkingConfiguration
-:ChunkingConfiguration rdf:type owl:NamedIndividual ,
-                                gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##ChunkingExec
-:ChunkingExec rdf:type owl:NamedIndividual ,
-                       gufo:EventType .
-
-
-###  http://purl.org/mrrobson9/rag##Citation
-:Citation rdf:type owl:NamedIndividual ,
-                   gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##ConfidentialLevel
-:ConfidentialLevel rdf:type owl:NamedIndividual ,
-                            gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##Document
-:Document rdf:type owl:NamedIndividual ,
-                   gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##EmbeddingConfiguration
-:EmbeddingConfiguration rdf:type owl:NamedIndividual ,
-                                 gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##EmbeddingExec
-:EmbeddingExec rdf:type owl:NamedIndividual ,
-                        gufo:EventType .
-
-
-###  http://purl.org/mrrobson9/rag##EmbeddingModel
-:EmbeddingModel rdf:type owl:NamedIndividual ,
-                         gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##EmbeddingVector
-:EmbeddingVector rdf:type owl:NamedIndividual ,
-                          gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##FilterPolicy
-:FilterPolicy rdf:type owl:NamedIndividual ,
-                       gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##FindingType
-:FindingType rdf:type owl:NamedIndividual ,
-                      gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##GeneratedAnswer
-:GeneratedAnswer rdf:type owl:NamedIndividual ,
-                          gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##GenerationConfig
-:GenerationConfig rdf:type owl:NamedIndividual ,
-                           gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##IndexingRun
-:IndexingRun rdf:type owl:NamedIndividual ,
-                      gufo:EventType .
-
-
-###  http://purl.org/mrrobson9/rag##LLMCall
-:LLMCall rdf:type owl:NamedIndividual ,
-                  gufo:EventType .
-
-
-###  http://purl.org/mrrobson9/rag##ModelRelease
-:ModelRelease rdf:type owl:NamedIndividual ,
-                       gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##Prompt
-:Prompt rdf:type owl:NamedIndividual ,
-                 gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##RerankerConfig
-:RerankerConfig rdf:type owl:NamedIndividual ,
-                         gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##RerankingExec
-:RerankingExec rdf:type owl:NamedIndividual ,
-                        gufo:EventType .
-
-
-###  http://purl.org/mrrobson9/rag##RetrievalConfig
-:RetrievalConfig rdf:type owl:NamedIndividual ,
-                          gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##RetrievalExec
-:RetrievalExec rdf:type owl:NamedIndividual ,
-                        gufo:EventType .
-
-
-###  http://purl.org/mrrobson9/rag##RetrievedChunk
-:RetrievedChunk rdf:type owl:NamedIndividual ,
-                         gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##RetrievedContext
-:RetrievedContext rdf:type owl:NamedIndividual ,
-                           gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##UserQuery
-:UserQuery rdf:type owl:NamedIndividual ,
-                    gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##ValidationExec
-:ValidationExec rdf:type owl:NamedIndividual ,
-                         gufo:EventType .
-
-
-###  http://purl.org/mrrobson9/rag##ValidationFinding
-:ValidationFinding rdf:type owl:NamedIndividual ,
-                            gufo:Kind .
-
-
-###  http://purl.org/mrrobson9/rag##VectorStore
-:VectorStore rdf:type owl:NamedIndividual ,
-                      gufo:Kind .
-
-
-#################################################################
-#    Annotations
-#################################################################
-
-:Chunk rdfs:label "Chunk"@en .
-
-
-:ChunkingConfiguration rdfs:label "ChunkingConfiguration"@en .
-
-
-:ChunkingExec rdfs:label "ChunkingExec"@en .
-
-
-:Citation rdfs:label "Citation"@en .
-
-
-:ConfidentialLevel rdfs:label "ConfidentialLevel "@en .
-
-
-:Document rdfs:label "Document"@en .
-
-
-:EmbeddingConfiguration rdfs:label "EmbeddingConfiguration"@en .
-
-
-:EmbeddingExec rdfs:label "EmbeddingExec"@en .
-
-
-:EmbeddingModel rdfs:label "EmbeddingModel    "@en .
-
-
-:EmbeddingVector rdfs:label "EmbeddingVector"@en .
-
-
-:FilterPolicy rdfs:label "FilterPolicy              "@en .
-
-
-:FindingType rdfs:label "FindingType               "@en .
-
-
-:GeneratedAnswer rdfs:label "GeneratedAnswer    "@en .
-
-
-:GenerationConfig rdfs:label "GenerationConfig          "@en .
-
-
-:IndexingRun rdfs:label "IndexingRun "@en .
-
-
-:LLMCall rdfs:label "LLMCall           "@en .
-
-
-:ModelRelease rdfs:label "ModelRelease      "@en .
-
-
-:Prompt rdfs:label "Prompt             "@en .
-
-
-:RerankerConfig rdfs:label "RerankerConfig     "@en .
-
-
-:RerankingExec rdfs:label "RerankingExec            "@en .
-
-
-:RetrievalConfig rdfs:label "RetrievalConfig    "@en .
-
-
-:RetrievalExec rdfs:label "RetrievalExec     "@en .
-
-
-:RetrievedChunk rdfs:label "RetrievedChunk         "@en .
-
-
-:RetrievedContext rdfs:label "RetrievedContext   "@en .
-
-
-:UserQuery rdfs:label "UserQuery          "@en .
-
-
-:ValidationExec rdfs:label "ValidationExec           "@en .
-
-
-:ValidationFinding rdfs:label "ValidationFinding  "@en .
-
-
-:VectorStore rdfs:label "VectorStore "@en .
-
-
-###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

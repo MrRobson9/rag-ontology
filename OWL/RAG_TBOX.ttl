@@ -14,259 +14,259 @@
 #    Object Properties
 #################################################################
 
-###  http://purl.org/rag-onto#about
+###  http://purl.org/mrrobson9/rag##about
 :about rdf:type owl:ObjectProperty ;
        rdfs:domain :RetrievedContext ;
        rdfs:range :ValidationFinding ;
        rdfs:label "about "@en .
 
 
-###  http://purl.org/rag-onto#applies
+###  http://purl.org/mrrobson9/rag##applies
 :applies rdf:type owl:ObjectProperty ;
          rdfs:domain :FilterPolicy ;
          rdfs:range :RetrievalExec ;
          rdfs:label "applies"@en .
 
 
-###  http://purl.org/rag-onto#cites
+###  http://purl.org/mrrobson9/rag##cites
 :cites rdf:type owl:ObjectProperty ;
        rdfs:domain :GeneratedAnswer ;
        rdfs:range :Citation ;
        rdfs:label "cites"@en .
 
 
-###  http://purl.org/rag-onto#contains
+###  http://purl.org/mrrobson9/rag##contains
 :contains rdf:type owl:ObjectProperty ;
           rdfs:domain :RetrievedContext ;
           rdfs:range :Chunk ;
           rdfs:label "contains"@en .
 
 
-###  http://purl.org/rag-onto#creates
+###  http://purl.org/mrrobson9/rag##creates
 :creates rdf:type owl:ObjectProperty ;
          rdfs:domain :ChunkingExec ;
          rdfs:range :Chunk ;
          rdfs:label "creates"@en .
 
 
-###  http://purl.org/rag-onto#creates_1
+###  http://purl.org/mrrobson9/rag##creates_1
 :creates_1 rdf:type owl:ObjectProperty ;
            rdfs:domain :RetrievalExec ;
            rdfs:range :RetrievedContext ;
            rdfs:label "creates"@en .
 
 
-###  http://purl.org/rag-onto#creates_2
+###  http://purl.org/mrrobson9/rag##creates_2
 :creates_2 rdf:type owl:ObjectProperty ;
            rdfs:domain :LLMCall ;
            rdfs:range :GeneratedAnswer ;
            rdfs:label "creates"@en .
 
 
-###  http://purl.org/rag-onto#creates_3
+###  http://purl.org/mrrobson9/rag##creates_3
 :creates_3 rdf:type owl:ObjectProperty ;
            rdfs:domain :EmbeddingExec ;
            rdfs:range :EmbeddingVector ;
            rdfs:label "creates"@en .
 
 
-###  http://purl.org/rag-onto#evidenceItem
+###  http://purl.org/mrrobson9/rag##evidenceItem
 :evidenceItem rdf:type owl:ObjectProperty ;
               rdfs:domain :RetrievedChunk ;
               rdfs:range :ValidationFinding ;
               rdfs:label "evidenceItem "@en .
 
 
-###  http://purl.org/rag-onto#hasChunk
+###  http://purl.org/mrrobson9/rag##hasChunk
 :hasChunk rdf:type owl:ObjectProperty ;
           rdfs:domain :Document ;
           rdfs:range :Chunk ;
           rdfs:label "hasChunk"@en .
 
 
-###  http://purl.org/rag-onto#hasFinding
+###  http://purl.org/mrrobson9/rag##hasFinding
 :hasFinding rdf:type owl:ObjectProperty ;
             rdfs:domain :GeneratedAnswer ;
             rdfs:range :ValidationFinding ;
             rdfs:label "hasFinding "@en .
 
 
-###  http://purl.org/rag-onto#hasItem
+###  http://purl.org/mrrobson9/rag##hasItem
 :hasItem rdf:type owl:ObjectProperty ;
          rdfs:domain :RetrievedContext ;
          rdfs:range :RetrievedChunk ;
          rdfs:label "hasItem"@en .
 
 
-###  http://purl.org/rag-onto#hasRelease
+###  http://purl.org/mrrobson9/rag##hasRelease
 :hasRelease rdf:type owl:ObjectProperty ;
             rdfs:domain :EmbeddingModel ;
             rdfs:range :ModelRelease ;
             rdfs:label "hasRelease"@en .
 
 
-###  http://purl.org/rag-onto#hasType
+###  http://purl.org/mrrobson9/rag##hasType
 :hasType rdf:type owl:ObjectProperty ;
          rdfs:domain :FindingType ;
          rdfs:range :ValidationFinding ;
          rdfs:label "hasType "@en .
 
 
-###  http://purl.org/rag-onto#includes
+###  http://purl.org/mrrobson9/rag##includes
 :includes rdf:type owl:ObjectProperty ;
           rdfs:domain :IndexingRun ;
           rdfs:range :ChunkingExec ;
           rdfs:label "includes "@en .
 
 
-###  http://purl.org/rag-onto#includes_1
+###  http://purl.org/mrrobson9/rag##includes_1
 :includes_1 rdf:type owl:ObjectProperty ;
             rdfs:domain :IndexingRun ;
             rdfs:range :Chunk ;
             rdfs:label "includes"@en .
 
 
-###  http://purl.org/rag-onto#includes_2
+###  http://purl.org/mrrobson9/rag##includes_2
 :includes_2 rdf:type owl:ObjectProperty ;
             rdfs:domain :IndexingRun ;
             rdfs:range :EmbeddingExec ;
             rdfs:label "includes "@en .
 
 
-###  http://purl.org/rag-onto#inheresIn
+###  http://purl.org/mrrobson9/rag##inheresIn
 :inheresIn rdf:type owl:ObjectProperty ;
            rdfs:domain :ConfidentialLevel ;
            rdfs:range :Document ;
            rdfs:label "inheresIn"@en .
 
 
-###  http://purl.org/rag-onto#inputTo
+###  http://purl.org/mrrobson9/rag##inputTo
 :inputTo rdf:type owl:ObjectProperty ;
          rdfs:domain :Prompt ;
          rdfs:range :LLMCall ;
          rdfs:label "inputTo "@en .
 
 
-###  http://purl.org/rag-onto#isEmbeddingOf
+###  http://purl.org/mrrobson9/rag##isEmbeddingOf
 :isEmbeddingOf rdf:type owl:ObjectProperty ;
                rdfs:domain :Chunk ;
                rdfs:range :EmbeddingVector ;
                rdfs:label "isEmbeddingOf"@en .
 
 
-###  http://purl.org/rag-onto#partOf
+###  http://purl.org/mrrobson9/rag##partOf
 :partOf rdf:type owl:ObjectProperty ;
         rdfs:domain :RetrievalExec ;
         rdfs:range :RerankingExec ;
         rdfs:label "partOf"@en .
 
 
-###  http://purl.org/rag-onto#processes
+###  http://purl.org/mrrobson9/rag##processes
 :processes rdf:type owl:ObjectProperty ;
            rdfs:domain :ChunkingExec ;
            rdfs:range :Document ;
            rdfs:label "processes"@en .
 
 
-###  http://purl.org/rag-onto#processes_1
+###  http://purl.org/mrrobson9/rag##processes_1
 :processes_1 rdf:type owl:ObjectProperty ;
              rdfs:domain :EmbeddingExec ;
              rdfs:range :Chunk ;
              rdfs:label "processes"@en .
 
 
-###  http://purl.org/rag-onto#produces
+###  http://purl.org/mrrobson9/rag##produces
 :produces rdf:type owl:ObjectProperty ;
           rdfs:domain :RetrievalExec ;
           rdfs:range :RetrievedChunk ;
           rdfs:label "produces"@en .
 
 
-###  http://purl.org/rag-onto#produces_1
+###  http://purl.org/mrrobson9/rag##produces_1
 :produces_1 rdf:type owl:ObjectProperty ;
             rdfs:domain :ValidationFinding ;
             rdfs:range :ValidationExec ;
             rdfs:label "produces"@en .
 
 
-###  http://purl.org/rag-onto#refersTo
+###  http://purl.org/mrrobson9/rag##refersTo
 :refersTo rdf:type owl:ObjectProperty ;
           rdfs:domain :Citation ;
           rdfs:range :RetrievedChunk ;
           rdfs:label "refersTo"@en .
 
 
-###  http://purl.org/rag-onto#refersTo_1
+###  http://purl.org/mrrobson9/rag##refersTo_1
 :refersTo_1 rdf:type owl:ObjectProperty ;
             rdfs:domain :RetrievedChunk ;
             rdfs:range :Chunk ;
             rdfs:label "refersTo"@en .
 
 
-###  http://purl.org/rag-onto#storedIn
+###  http://purl.org/mrrobson9/rag##storedIn
 :storedIn rdf:type owl:ObjectProperty ;
           rdfs:domain :EmbeddingVector ;
           rdfs:range :VectorStore ;
           rdfs:label "storedIn"@en .
 
 
-###  http://purl.org/rag-onto#triggers
+###  http://purl.org/mrrobson9/rag##triggers
 :triggers rdf:type owl:ObjectProperty ;
           rdfs:domain :UserQuery ;
           rdfs:range :RetrievalExec ;
           rdfs:label "triggers     "@en .
 
 
-###  http://purl.org/rag-onto#usedIn
+###  http://purl.org/mrrobson9/rag##usedIn
 :usedIn rdf:type owl:ObjectProperty ;
         rdfs:domain :RetrievedContext ;
         rdfs:range :Prompt ;
         rdfs:label "usedIn "@en .
 
 
-###  http://purl.org/rag-onto#uses
+###  http://purl.org/mrrobson9/rag##uses
 :uses rdf:type owl:ObjectProperty ;
       rdfs:domain :ChunkingConfiguration ;
       rdfs:range :ChunkingExec ;
       rdfs:label "uses "@en .
 
 
-###  http://purl.org/rag-onto#uses_1
+###  http://purl.org/mrrobson9/rag##uses_1
 :uses_1 rdf:type owl:ObjectProperty ;
         rdfs:domain :EmbeddingExec ;
         rdfs:range :ModelRelease ;
         rdfs:label "uses"@en .
 
 
-###  http://purl.org/rag-onto#uses_2
+###  http://purl.org/mrrobson9/rag##uses_2
 :uses_2 rdf:type owl:ObjectProperty ;
         rdfs:domain :RetrievalExec ;
         rdfs:range :RerankerConfig ;
         rdfs:label "uses"@en .
 
 
-###  http://purl.org/rag-onto#uses_3
+###  http://purl.org/mrrobson9/rag##uses_3
 :uses_3 rdf:type owl:ObjectProperty ;
         rdfs:domain :RetrievalExec ;
         rdfs:range :RetrievalConfig ;
         rdfs:label "uses"@en .
 
 
-###  http://purl.org/rag-onto#uses_4
+###  http://purl.org/mrrobson9/rag##uses_4
 :uses_4 rdf:type owl:ObjectProperty ;
         rdfs:domain :LLMCall ;
         rdfs:range :GenerationConfig ;
         rdfs:label "uses"@en .
 
 
-###  http://purl.org/rag-onto#uses_5
+###  http://purl.org/mrrobson9/rag##uses_5
 :uses_5 rdf:type owl:ObjectProperty ;
         rdfs:domain :EmbeddingExec ;
         rdfs:range :EmbeddingConfiguration ;
         rdfs:label "uses"@en .
 
 
-###  http://purl.org/rag-onto#validates
+###  http://purl.org/mrrobson9/rag##validates
 :validates rdf:type owl:ObjectProperty ;
            rdfs:domain :ValidationExec ;
            rdfs:range :GeneratedAnswer ;
@@ -277,532 +277,532 @@
 #    Data properties
 #################################################################
 
-###  http://purl.org/rag-onto#Level
+###  http://purl.org/mrrobson9/rag##Level
 :Level rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf gufo:hasQualityValue ;
        rdfs:domain :ConfidentialLevel ;
        rdfs:label "Level"@en .
 
 
-###  http://purl.org/rag-onto#allowConfidential
+###  http://purl.org/mrrobson9/rag##allowConfidential
 :allowConfidential rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf gufo:hasQualityValue ;
                    rdfs:domain :FilterPolicy ;
                    rdfs:label "allowConfidential"@en .
 
 
-###  http://purl.org/rag-onto#answerId
+###  http://purl.org/mrrobson9/rag##answerId
 :answerId rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf gufo:hasQualityValue ;
           rdfs:domain :GeneratedAnswer ;
           rdfs:label "answerId"@en .
 
 
-###  http://purl.org/rag-onto#batchSize
+###  http://purl.org/mrrobson9/rag##batchSize
 :batchSize rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :EmbeddingConfiguration ;
            rdfs:label "batchSize"@en .
 
 
-###  http://purl.org/rag-onto#callId
+###  http://purl.org/mrrobson9/rag##callId
 :callId rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf gufo:hasQualityValue ;
         rdfs:domain :LLMCall ;
         rdfs:label "callId"@en .
 
 
-###  http://purl.org/rag-onto#chunkId
+###  http://purl.org/mrrobson9/rag##chunkId
 :chunkId rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf gufo:hasQualityValue ;
          rdfs:domain :Chunk ;
          rdfs:label "chunkId"@en .
 
 
-###  http://purl.org/rag-onto#chunkSize
+###  http://purl.org/mrrobson9/rag##chunkSize
 :chunkSize rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :ChunkingConfiguration ;
            rdfs:label "chunkSize"@en .
 
 
-###  http://purl.org/rag-onto#citeId
+###  http://purl.org/mrrobson9/rag##citeId
 :citeId rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf gufo:hasQualityValue ;
         rdfs:domain :Citation ;
         rdfs:label "citeId"@en .
 
 
-###  http://purl.org/rag-onto#confidence
+###  http://purl.org/mrrobson9/rag##confidence
 :confidence rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf gufo:hasQualityValue ;
             rdfs:domain :Citation ;
             rdfs:label "confidence"@en .
 
 
-###  http://purl.org/rag-onto#contextId
+###  http://purl.org/mrrobson9/rag##contextId
 :contextId rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :RetrievedContext ;
            rdfs:label "contextId"@en .
 
 
-###  http://purl.org/rag-onto#createdAt
+###  http://purl.org/mrrobson9/rag##createdAt
 :createdAt rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :GeneratedAnswer ;
            rdfs:label "createdAt"@en .
 
 
-###  http://purl.org/rag-onto#date
+###  http://purl.org/mrrobson9/rag##date
 :date rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf gufo:hasQualityValue ;
       rdfs:domain :ModelRelease ;
       rdfs:label "date"@en .
 
 
-###  http://purl.org/rag-onto#distance
+###  http://purl.org/mrrobson9/rag##distance
 :distance rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf gufo:hasQualityValue ;
           rdfs:domain :RetrievedChunk ;
           rdfs:label "distance"@en .
 
 
-###  http://purl.org/rag-onto#docId
+###  http://purl.org/mrrobson9/rag##docId
 :docId rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf gufo:hasQualityValue ;
        rdfs:domain :Document ;
        rdfs:label "docId"@en .
 
 
-###  http://purl.org/rag-onto#endOffset
+###  http://purl.org/mrrobson9/rag##endOffset
 :endOffset rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :Chunk ;
            rdfs:label "endOffset"@en .
 
 
-###  http://purl.org/rag-onto#endedAt
+###  http://purl.org/mrrobson9/rag##endedAt
 :endedAt rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf gufo:hasQualityValue ;
          rdfs:domain :EmbeddingExec ;
          rdfs:label "endedAt"@en .
 
 
-###  http://purl.org/rag-onto#endedAt_1
+###  http://purl.org/mrrobson9/rag##endedAt_1
 :endedAt_1 rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :IndexingRun ;
            rdfs:label "endedAt"@en .
 
 
-###  http://purl.org/rag-onto#endedAt_2
+###  http://purl.org/mrrobson9/rag##endedAt_2
 :endedAt_2 rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :LLMCall ;
            rdfs:label "endedAt"@en .
 
 
-###  http://purl.org/rag-onto#endedAt_3
+###  http://purl.org/mrrobson9/rag##endedAt_3
 :endedAt_3 rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :ChunkingExec ;
            rdfs:label "endedAt"@en .
 
 
-###  http://purl.org/rag-onto#endedAt_4
+###  http://purl.org/mrrobson9/rag##endedAt_4
 :endedAt_4 rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :RetrievalExec ;
            rdfs:label "endedAt"@en .
 
 
-###  http://purl.org/rag-onto#endedAt_5
+###  http://purl.org/mrrobson9/rag##endedAt_5
 :endedAt_5 rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :ValidationExec ;
            rdfs:label "endedAt"@en .
 
 
-###  http://purl.org/rag-onto#execId
+###  http://purl.org/mrrobson9/rag##execId
 :execId rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf gufo:hasQualityValue ;
         rdfs:domain :ValidationExec ;
         rdfs:label "execId"@en .
 
 
-###  http://purl.org/rag-onto#execId_1
+###  http://purl.org/mrrobson9/rag##execId_1
 :execId_1 rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf gufo:hasQualityValue ;
           rdfs:domain :ChunkingExec ;
           rdfs:label "execId"@en .
 
 
-###  http://purl.org/rag-onto#execId_2
+###  http://purl.org/mrrobson9/rag##execId_2
 :execId_2 rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf gufo:hasQualityValue ;
           rdfs:domain :EmbeddingExec ;
           rdfs:label "execId"@en .
 
 
-###  http://purl.org/rag-onto#execId_3
+###  http://purl.org/mrrobson9/rag##execId_3
 :execId_3 rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf gufo:hasQualityValue ;
           rdfs:domain :RetrievalExec ;
           rdfs:label "execId"@en .
 
 
-###  http://purl.org/rag-onto#execId_4
+###  http://purl.org/mrrobson9/rag##execId_4
 :execId_4 rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf gufo:hasQualityValue ;
           rdfs:domain :RerankingExec ;
           rdfs:label "execId"@en .
 
 
-###  http://purl.org/rag-onto#filters
+###  http://purl.org/mrrobson9/rag##filters
 :filters rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf gufo:hasQualityValue ;
          rdfs:domain :RetrievalConfig ;
          rdfs:label "filters"@en .
 
 
-###  http://purl.org/rag-onto#filters_1
+###  http://purl.org/mrrobson9/rag##filters_1
 :filters_1 rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :RerankerConfig ;
            rdfs:label "filters"@en .
 
 
-###  http://purl.org/rag-onto#findingId
+###  http://purl.org/mrrobson9/rag##findingId
 :findingId rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :ValidationFinding ;
            rdfs:label "findingId"@en .
 
 
-###  http://purl.org/rag-onto#hash
+###  http://purl.org/mrrobson9/rag##hash
 :hash rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf gufo:hasQualityValue ;
       rdfs:domain :ModelRelease ;
       rdfs:label "hash"@en .
 
 
-###  http://purl.org/rag-onto#maxTokens
+###  http://purl.org/mrrobson9/rag##maxTokens
 :maxTokens rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :GenerationConfig ;
            rdfs:label "maxTokens"@en .
 
 
-###  http://purl.org/rag-onto#method
+###  http://purl.org/mrrobson9/rag##method
 :method rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf gufo:hasQualityValue ;
         rdfs:domain :ValidationExec ;
         rdfs:label "method"@en .
 
 
-###  http://purl.org/rag-onto#minChunkSize
+###  http://purl.org/mrrobson9/rag##minChunkSize
 :minChunkSize rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf gufo:hasQualityValue ;
               rdfs:domain :ChunkingConfiguration ;
               rdfs:label "minChunkSize"@en .
 
 
-###  http://purl.org/rag-onto#minConfidentialLevel
+###  http://purl.org/mrrobson9/rag##minConfidentialLevel
 :minConfidentialLevel rdf:type owl:DatatypeProperty ;
                       rdfs:subPropertyOf gufo:hasQualityValue ;
                       rdfs:domain :FilterPolicy ;
                       rdfs:label "minConfidentialLevel"@en .
 
 
-###  http://purl.org/rag-onto#modelName
+###  http://purl.org/mrrobson9/rag##modelName
 :modelName rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :GenerationConfig ;
            rdfs:label "modelName"@en .
 
 
-###  http://purl.org/rag-onto#modelName_1
+###  http://purl.org/mrrobson9/rag##modelName_1
 :modelName_1 rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf gufo:hasQualityValue ;
              rdfs:domain :LLMCall ;
              rdfs:label "modelName"@en .
 
 
-###  http://purl.org/rag-onto#name
+###  http://purl.org/mrrobson9/rag##name
 :name rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf gufo:hasQualityValue ;
       rdfs:domain :FilterPolicy ;
       rdfs:label "name"@en .
 
 
-###  http://purl.org/rag-onto#name_1
+###  http://purl.org/mrrobson9/rag##name_1
 :name_1 rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf gufo:hasQualityValue ;
         rdfs:domain :FindingType ;
         rdfs:label "name"@en .
 
 
-###  http://purl.org/rag-onto#name_2
+###  http://purl.org/mrrobson9/rag##name_2
 :name_2 rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf gufo:hasQualityValue ;
         rdfs:domain :EmbeddingModel ;
         rdfs:label "name"@en .
 
 
-###  http://purl.org/rag-onto#normalize
+###  http://purl.org/mrrobson9/rag##normalize
 :normalize rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :EmbeddingConfiguration ;
            rdfs:label "normalize"@en .
 
 
-###  http://purl.org/rag-onto#overlap
+###  http://purl.org/mrrobson9/rag##overlap
 :overlap rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf gufo:hasQualityValue ;
          rdfs:domain :ChunkingConfiguration ;
          rdfs:label "overlap"@en .
 
 
-###  http://purl.org/rag-onto#pooling
+###  http://purl.org/mrrobson9/rag##pooling
 :pooling rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf gufo:hasQualityValue ;
          rdfs:domain :EmbeddingConfiguration ;
          rdfs:label "pooling"@en .
 
 
-###  http://purl.org/rag-onto#precision
+###  http://purl.org/mrrobson9/rag##precision
 :precision rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :EmbeddingConfiguration ;
            rdfs:label "precision"@en .
 
 
-###  http://purl.org/rag-onto#provider
+###  http://purl.org/mrrobson9/rag##provider
 :provider rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf gufo:hasQualityValue ;
           rdfs:domain :EmbeddingModel ;
           rdfs:label "provider"@en .
 
 
-###  http://purl.org/rag-onto#queryId
+###  http://purl.org/mrrobson9/rag##queryId
 :queryId rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf gufo:hasQualityValue ;
          rdfs:domain :UserQuery ;
          rdfs:label "queryId"@en .
 
 
-###  http://purl.org/rag-onto#quote
+###  http://purl.org/mrrobson9/rag##quote
 :quote rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf gufo:hasQualityValue ;
        rdfs:domain :Citation ;
        rdfs:label "quote"@en .
 
 
-###  http://purl.org/rag-onto#rank
+###  http://purl.org/mrrobson9/rag##rank
 :rank rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf gufo:hasQualityValue ;
       rdfs:domain :RetrievedChunk ;
       rdfs:label "rank"@en .
 
 
-###  http://purl.org/rag-onto#rationale
+###  http://purl.org/mrrobson9/rag##rationale
 :rationale rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :ValidationFinding ;
            rdfs:label "rationale"@en .
 
 
-###  http://purl.org/rag-onto#retrievalStrategy
+###  http://purl.org/mrrobson9/rag##retrievalStrategy
 :retrievalStrategy rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf gufo:hasQualityValue ;
                    rdfs:domain :RetrievalConfig ;
                    rdfs:label "retrievalStrategy"@en .
 
 
-###  http://purl.org/rag-onto#runId
+###  http://purl.org/mrrobson9/rag##runId
 :runId rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf gufo:hasQualityValue ;
        rdfs:domain :IndexingRun ;
        rdfs:label "runId"@en .
 
 
-###  http://purl.org/rag-onto#score
+###  http://purl.org/mrrobson9/rag##score
 :score rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf gufo:hasQualityValue ;
        rdfs:domain :RetrievedChunk ;
        rdfs:label "score"@en .
 
 
-###  http://purl.org/rag-onto#separators
+###  http://purl.org/mrrobson9/rag##separators
 :separators rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf gufo:hasQualityValue ;
             rdfs:domain :ChunkingConfiguration ;
             rdfs:label "separators"@en .
 
 
-###  http://purl.org/rag-onto#severity
+###  http://purl.org/mrrobson9/rag##severity
 :severity rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf gufo:hasQualityValue ;
           rdfs:domain :ValidationFinding ;
           rdfs:label "severity"@en .
 
 
-###  http://purl.org/rag-onto#similarityMetric
+###  http://purl.org/mrrobson9/rag##similarityMetric
 :similarityMetric rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf gufo:hasQualityValue ;
                   rdfs:domain :RetrievalConfig ;
                   rdfs:label "similarityMetric"@en .
 
 
-###  http://purl.org/rag-onto#sourceUri
+###  http://purl.org/mrrobson9/rag##sourceUri
 :sourceUri rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :Document ;
            rdfs:label "sourceUri"@en .
 
 
-###  http://purl.org/rag-onto#span
+###  http://purl.org/mrrobson9/rag##span
 :span rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf gufo:hasQualityValue ;
       rdfs:domain :Citation ;
       rdfs:label "span"@en .
 
 
-###  http://purl.org/rag-onto#startOffset
+###  http://purl.org/mrrobson9/rag##startOffset
 :startOffset rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf gufo:hasQualityValue ;
              rdfs:domain :Citation ;
              rdfs:label "startOffset"@en .
 
 
-###  http://purl.org/rag-onto#startedAt
+###  http://purl.org/mrrobson9/rag##startedAt
 :startedAt rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :LLMCall ;
            rdfs:label "startedAt"@en .
 
 
-###  http://purl.org/rag-onto#startedAt_1
+###  http://purl.org/mrrobson9/rag##startedAt_1
 :startedAt_1 rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf gufo:hasQualityValue ;
              rdfs:domain :EmbeddingExec ;
              rdfs:label "startedAt"@en .
 
 
-###  http://purl.org/rag-onto#startedAt_2
+###  http://purl.org/mrrobson9/rag##startedAt_2
 :startedAt_2 rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf gufo:hasQualityValue ;
              rdfs:domain :RetrievalExec ;
              rdfs:label "startedAt"@en .
 
 
-###  http://purl.org/rag-onto#startedAt_3
+###  http://purl.org/mrrobson9/rag##startedAt_3
 :startedAt_3 rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf gufo:hasQualityValue ;
              rdfs:domain :IndexingRun ;
              rdfs:label "startedAt"@en .
 
 
-###  http://purl.org/rag-onto#startedAt_4
+###  http://purl.org/mrrobson9/rag##startedAt_4
 :startedAt_4 rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf gufo:hasQualityValue ;
              rdfs:domain :ValidationExec ;
              rdfs:label "startedAt"@en .
 
 
-###  http://purl.org/rag-onto#startedAt_5
+###  http://purl.org/mrrobson9/rag##startedAt_5
 :startedAt_5 rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf gufo:hasQualityValue ;
              rdfs:domain :ChunkingExec ;
              rdfs:label "startedAt"@en .
 
 
-###  http://purl.org/rag-onto#status
+###  http://purl.org/mrrobson9/rag##status
 :status rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf gufo:hasQualityValue ;
         rdfs:domain :IndexingRun ;
         rdfs:label "status"@en .
 
 
-###  http://purl.org/rag-onto#strategy
+###  http://purl.org/mrrobson9/rag##strategy
 :strategy rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf gufo:hasQualityValue ;
           rdfs:domain :ChunkingConfiguration ;
           rdfs:label "strategy"@en .
 
 
-###  http://purl.org/rag-onto#systemRole
+###  http://purl.org/mrrobson9/rag##systemRole
 :systemRole rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf gufo:hasQualityValue ;
             rdfs:domain :GenerationConfig ;
             rdfs:label "systemRole"@en .
 
 
-###  http://purl.org/rag-onto#temperature
+###  http://purl.org/mrrobson9/rag##temperature
 :temperature rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf gufo:hasQualityValue ;
              rdfs:domain :LLMCall ;
              rdfs:label "temperature"@en .
 
 
-###  http://purl.org/rag-onto#temperature_1
+###  http://purl.org/mrrobson9/rag##temperature_1
 :temperature_1 rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf gufo:hasQualityValue ;
                rdfs:domain :GenerationConfig ;
                rdfs:label "temperature"@en .
 
 
-###  http://purl.org/rag-onto#text
+###  http://purl.org/mrrobson9/rag##text
 :text rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf gufo:hasQualityValue ;
       rdfs:domain :UserQuery ;
       rdfs:label "text"@en .
 
 
-###  http://purl.org/rag-onto#text_1
+###  http://purl.org/mrrobson9/rag##text_1
 :text_1 rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf gufo:hasQualityValue ;
         rdfs:domain :GeneratedAnswer ;
         rdfs:label "text"@en .
 
 
-###  http://purl.org/rag-onto#timestamp
+###  http://purl.org/mrrobson9/rag##timestamp
 :timestamp rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf gufo:hasQualityValue ;
            rdfs:domain :UserQuery ;
            rdfs:label "timestamp"@en .
 
 
-###  http://purl.org/rag-onto#title
+###  http://purl.org/mrrobson9/rag##title
 :title rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf gufo:hasQualityValue ;
        rdfs:domain :Document ;
        rdfs:label "title"@en .
 
 
-###  http://purl.org/rag-onto#topK
+###  http://purl.org/mrrobson9/rag##topK
 :topK rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf gufo:hasQualityValue ;
       rdfs:domain :RerankerConfig ;
       rdfs:label "topK"@en .
 
 
-###  http://purl.org/rag-onto#topK_1
+###  http://purl.org/mrrobson9/rag##topK_1
 :topK_1 rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf gufo:hasQualityValue ;
         rdfs:domain :RetrievalConfig ;
         rdfs:label "topK"@en .
 
 
-###  http://purl.org/rag-onto#type
+###  http://purl.org/mrrobson9/rag##type
 :type rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf gufo:hasQualityValue ;
       rdfs:domain :ValidationFinding ;
       rdfs:label "type"@en .
 
 
-###  http://purl.org/rag-onto#version
+###  http://purl.org/mrrobson9/rag##version
 :version rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf gufo:hasQualityValue ;
          rdfs:domain :ModelRelease ;
@@ -813,286 +813,316 @@
 #    Classes
 #################################################################
 
-###  http://purl.org/rag-onto#Chunk
+###  
 :Chunk rdf:type owl:Class ;
-       rdfs:subClassOf gufo:FunctionalComplex .
+       rdfs:subClassOf gufo:FunctionalComplex ;
+       rdfs:comment "Menor unidade/parte resultante da divisão realizada em um córpus de documento(s)."@pt-br ,
+                    "Smallest unit/part resulting from the division performed on a document corpus."@en .
+                   
 
-
-###  http://purl.org/rag-onto#ChunkingConfiguration
+###  
 :ChunkingConfiguration rdf:type owl:Class ;
-                       rdfs:subClassOf gufo:FunctionalComplex .
+                       rdfs:subClassOf gufo:FunctionalComplex ;
+                       rdfs:comment "Parâmetros de configuração que regem o processo de divisão/particição do córpus de documento(s)."@pt-br ,
+                                    "Configuration parameters that govern the division/partitioning process of the document corpus."@en .
 
-
-###  http://purl.org/rag-onto#ChunkingExec
+###  
 :ChunkingExec rdf:type owl:Class ;
-              rdfs:subClassOf gufo:Event .
+              rdfs:subClassOf gufo:Event ;
+              rdfs:comment "Processo de divisão/particição do córpus de documento(s) que gerará o Chunk."@pt-br ,
+                           "Process of dividing/partitioning the document corpus that will generate the Chunk."@en .
 
-
-###  http://purl.org/rag-onto#Citation
+###  
 :Citation rdf:type owl:Class ;
-          rdfs:subClassOf gufo:Relator .
+          rdfs:subClassOf gufo:Relator ;
+          rdfs:subClassOf gufo:Event ;
+          rdfs:comment "Referência/correspondência entre a resposta gerada e a unidade particionada do córpus de documento (chunk)."@pt-br ,
+                        "Reference/correspondence between the generated answer and the partitioned unit of the document corpus (chunk)."@en .
 
-
-###  http://purl.org/rag-onto#ConfidentialLevel
+###  
 :ConfidentialLevel rdf:type owl:Class ;
-                   rdfs:subClassOf gufo:Quality .
+                   rdfs:subClassOf gufo:Quality ;
+                   rdfs:comment "Qualidade intrínseca de um odcumento que define seu grau de restrição ou sigilo."@pt-br ,
+                                "Intrinsic quality of a document that defines its degree of restriction or confidentiality."@en .
 
-
-###  http://purl.org/rag-onto#Document
+###  
 :Document rdf:type owl:Class ;
-          rdfs:subClassOf gufo:FunctionalComplex .
+          rdfs:subClassOf gufo:FunctionalComplex ;
+          rdfs:comment "Coleção estruturada e representativa de registros textuais."@pt-br ,
+                        "Structured and representative collection of textual records."@en .
 
-
-###  http://purl.org/rag-onto#EmbeddingConfiguration
+###  
 :EmbeddingConfiguration rdf:type owl:Class ;
-                        rdfs:subClassOf gufo:FunctionalComplex .
+                        rdfs:subClassOf gufo:FunctionalComplex ;
+                        rdfs:comment "Parâmetros de configuração que regem o processo codificação dos chunks em vetores matemáticos (EmbeddingExec)."@pt-br ,
+                                "Configuration parameters that govern the encoding process of chunks into mathematical vectors (EmbeddingExec)."@en .
 
-
-###  http://purl.org/rag-onto#EmbeddingExec
+###  
 :EmbeddingExec rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Event .
+               rdfs:subClassOf gufo:Event ;
+               rdfs:comment "Processo de codificação dos chunks em vetores matemáticos e aramazenamento desses vetores em um banco de dados vetorial (VectorStore)."@pt-br ,
+                            "Process of encoding chunks into mathematical vectors and storing these vectors in a vector database (VectorStore)."@en .
 
-
-###  http://purl.org/rag-onto#EmbeddingModel
+###  
 :EmbeddingModel rdf:type owl:Class ;
-                rdfs:subClassOf gufo:FunctionalComplex .
+                rdfs:subClassOf gufo:FunctionalComplex ;
+                rdfs:comment "Molde/formato/função matemático(a) que irá reger como o a informação original será convertida na sequência de números comprensível pelo sistema."@pt-br ,
+                             "Mathematical mold/format/function that will govern how the original information is converted into the sequence of numbers understandable by the system."@en .
 
-
-###  http://purl.org/rag-onto#EmbeddingVector
+###  
 :EmbeddingVector rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:FunctionalComplex .
+                 rdfs:subClassOf gufo:FunctionalComplex ;
+                 rdfs:comment "Vetor de informações codificadas resultante do processo EmbeddingExec."@pt-br ,
+                                "Vector of encoded information resulting from the EmbeddingExec process."@en .
 
-
-###  http://purl.org/rag-onto#FilterPolicy
+###  
 :FilterPolicy rdf:type owl:Class ;
-              rdfs:subClassOf gufo:FunctionalComplex .
+              rdfs:subClassOf gufo:FunctionalComplex ;
+              rdfs:comment "Políticas ou regras de segurança aplicadas durante a recuperação de dados para restringir ou permitir acesso a certos documentos utilizando níveis de confidencialidade."@pt-br ,
+                            "Security policies or rules applied during data retrieval to restrict or allow access to certain documents using confidentiality levels."@en .
 
-
-###  http://purl.org/rag-onto#FindingType
+###  
 :FindingType rdf:type owl:Class ;
-             rdfs:subClassOf gufo:FunctionalComplex .
+             rdfs:subClassOf gufo:FunctionalComplex ;
+             rdfs:comment "Categoria ou taxonomia de uma descoberta de validação."@pt-br ,
+                          "Category or taxonomy of a validation finding."@en .
 
-
-###  http://purl.org/rag-onto#GeneratedAnswer
+###  
 :GeneratedAnswer rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:FunctionalComplex .
+                 rdfs:subClassOf gufo:FunctionalComplex ;
+                 rdfs:comment "Resposta final em linguagem natural produzida pelo modelo de linguagem (LLM) como resultado do processamento da pergunta do usuário combinada ao contexto recuperado."@pt-br ,
+                                "Final natural language response produced by the language model (LLM) as a result of processing the user query combined with the retrieved context."@en .
 
-
-###  http://purl.org/rag-onto#GenerationConfig
+###  
 :GenerationConfig rdf:type owl:Class ;
-                  rdfs:subClassOf gufo:FunctionalComplex .
+                  rdfs:subClassOf gufo:FunctionalComplex ;
+                  rdfs:comment "Parâmetros que controlam o comportamento do LLM durante a geração da resposta."@pt-br ,
+                                "Parameters that control the behavior of the LLM during answer generation."@en .
 
-
-###  http://purl.org/rag-onto#IndexingRun
+###  
 :IndexingRun rdf:type owl:Class ;
-             rdfs:subClassOf gufo:Event .
+             rdfs:subClassOf gufo:Event ;
+             rdfs:comment "Evento macro de processamento que engloba a rotina completa de preparação dos documentos, incluindo a divisão (ChunkingExec) e a vetorização (EmbeddingExec)."@pt-br ,
+                           "Macro processing event that encompasses the entire document preparation routine, including division (ChunkingExec) and vectorization (EmbeddingExec)."@en .
 
-
-###  http://purl.org/rag-onto#LLMCall
+###  
 :LLMCall rdf:type owl:Class ;
-         rdfs:subClassOf gufo:Event .
+         rdfs:subClassOf gufo:Event ;
+         rdfs:comment "Evento computacional de invocação e execução de um Grande Modelo de Linguagem (LLM) para processar o Prompt e retornar a GeneratedAnswer."@pt-br ,
+                      "Computational event of invoking and executing a Large Language Model (LLM) to process the Prompt and return the GeneratedAnswer."@en .
 
-
-###  http://purl.org/rag-onto#ModelRelease
+###  
 :ModelRelease rdf:type owl:Class ;
-              rdfs:subClassOf gufo:FunctionalComplex .
+              rdfs:subClassOf gufo:FunctionalComplex ;
+              rdfs:comment "Versão específica, consolidada e publicada de um modelo de inteligência artificial. Carrega os pesos matemáticos exatos treinados até aquela data."@pt-br ,
+                           "Specific, consolidated, and published version of an artificial intelligence model. It carries the exact mathematical weights trained up to that date."@en .
 
-
-###  http://purl.org/rag-onto#Prompt
+###  
 :Prompt rdf:type owl:Class ;
-        rdfs:subClassOf gufo:FunctionalComplex .
+        rdfs:subClassOf gufo:FunctionalComplex ;
+        rdfs:comment "Estrutura textual final de instrução enviada ao LLM, que encapsula a pergunta original do usuário, as regras de geração e o contexto factual recuperado (RetrievedContext)."@pt-br ,
+                      "Final textual instruction structure sent to the LLM, which encapsulates the original user query, the generation rules, and the retrieved factual context (RetrievedContext)."@en .
 
-
-###  http://purl.org/rag-onto#RerankerConfig
+###  
 :RerankerConfig rdf:type owl:Class ;
-                rdfs:subClassOf gufo:FunctionalComplex .
+                rdfs:subClassOf gufo:FunctionalComplex ;
+                rdfs:comment "Parâmetros de configuração para o processo de re-ranqueamento, definindo como os chunks previamente recuperados serão reordenados ou filtrados."@pt-br ,
+                                "Configuration parameters for the re-ranking process, defining how the previously retrieved chunks will be reordered or filtered."@en .
 
-
-###  http://purl.org/rag-onto#RerankingExec
+###  
 :RerankingExec rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Event .
+               rdfs:subClassOf gufo:Event ;
+               rdfs:comment "Processo de reordenação ou refino da lista inicial de chunks recuperados, aplicando um modelo secundário mais custoso para garantir maior precisão antes de formar o contexto final."@pt-br ,
+                                "Process of reordering or refining the initial list of retrieved chunks, applying a secondary, more costly model to ensure greater precision before forming the final context."@en .
 
-
-###  http://purl.org/rag-onto#RetrievalConfig
+###  
 :RetrievalConfig rdf:type owl:Class ;
-                 rdfs:subClassOf gufo:FunctionalComplex .
+                 rdfs:subClassOf gufo:FunctionalComplex ;
+                 rdfs:comment "Parâmetros e estratégias que regem a busca vetorial no VectorStore, como a métrica de similaridade matemática e o número de resultados esperados."@pt-br ,
+                                "Parameters and strategies that govern the vector search in the VectorStore, such as the mathematical similarity metric and the expected number of results."@en .
 
-
-###  http://purl.org/rag-onto#RetrievalExec
+###  
 :RetrievalExec rdf:type owl:Class ;
-               rdfs:subClassOf gufo:Event .
+               rdfs:subClassOf gufo:Event ;
+               rdfs:comment "Processo de busca que compara matematicamente o vetor da query do usuário com os vetores armazenados no VectorStore para extrair os chunks mais relevantes."@pt-br ,
+                            "Search process that mathematically compares the user query vector with the vectors stored in the VectorStore to extract the most relevant chunks."@en .
 
-
-###  http://purl.org/rag-onto#RetrievedChunk
+###  
 :RetrievedChunk rdf:type owl:Class ;
-                rdfs:subClassOf gufo:Relator .
+                rdfs:subClassOf gufo:Relator ;
+                rdfs:comment "Papel assumido por um Chunk específico após ser selecionado pelo processo de recuperação devido à sua alta relevância matemática (score/distância) em relação à query."@pt-br ,
+                             "Role assumed by a specific Chunk after being selected by the retrieval process due to its high mathematical relevance (score/distance) in relation to the query."@en .
 
-
-###  http://purl.org/rag-onto#RetrievedContext
+###  
 :RetrievedContext rdf:type owl:Class ;
-                  rdfs:subClassOf gufo:FunctionalComplex .
+                  rdfs:subClassOf gufo:FunctionalComplex ;
+                  rdfs:comment "Agrupamento consolidado dos chunks recuperados que servirá como a base de conhecimento factual fornecida ao LLM para fundamentar a resposta."@pt-br ,
+                                "Consolidated grouping of retrieved chunks that will serve as the factual knowledge base provided to the LLM to ground the answer."@en .
 
-
-###  http://purl.org/rag-onto#UserQuery
+###  
 :UserQuery rdf:type owl:Class ;
-           rdfs:subClassOf gufo:FunctionalComplex .
+           rdfs:subClassOf gufo:FunctionalComplex ;
+           rdfs:comment "Pergunta, instrução ou termo de busca inicial formulado e submetido pelo usuário humano ou sistema cliente."@pt-br ,
+                        "Initial question, instruction, or search term formulated and submitted by the human user or client system."@en .
 
-
-###  http://purl.org/rag-onto#ValidationExec
+###  
 :ValidationExec rdf:type owl:Class ;
-                rdfs:subClassOf gufo:Event .
+                rdfs:subClassOf gufo:Event ;
+                rdfs:comment "Processo metodológico ou computacional de avaliar a GeneratedAnswer contra a UserQuery e o RetrievedContext, verificando se há suporte factual ou alucinações (gerando ValidationFindings).."@pt-br ,
+                             "Methodological or computational process of evaluating the GeneratedAnswer against the UserQuery and the RetrievedContext, verifying if there is factual support or hallucinations (generating ValidationFindings)."@en .
 
-
-###  http://purl.org/rag-onto#ValidationFinding
+###  
 :ValidationFinding rdf:type owl:Class ;
-                   rdfs:subClassOf gufo:FunctionalComplex .
+                   rdfs:subClassOf gufo:FunctionalComplex ;
+                   rdfs:comment "Evidência, resultado ou diagnóstico gerado pelo processo de validação, contendo a justificativa e a severidade sobre a qualidade ou precisão da resposta gerada."@pt-br ,
+                                "Evidence, result, or diagnosis generated by the validation process, containing the rationale and severity regarding the quality or precision of the generated answer."@en .
 
-
-###  http://purl.org/rag-onto#VectorStore
+###  
 :VectorStore rdf:type owl:Class ;
-             rdfs:subClassOf gufo:FunctionalComplex .
-
+             rdfs:subClassOf gufo:FunctionalComplex ;
+             rdfs:comment "Banco de dados otimizado e especializado no armazenamento, indexação e busca eficiente de representações matemáticas de alta dimensionalidade (EmbeddingVectors)."@pt-br ,
+                          "Database optimized and specialized in the storage, indexing, and efficient search of high-dimensional mathematical representations (EmbeddingVectors)."@en .
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://purl.org/rag-onto#Chunk
+###  http://purl.org/mrrobson9/rag##Chunk
 :Chunk rdf:type owl:NamedIndividual ,
                 gufo:Kind .
 
 
-###  http://purl.org/rag-onto#ChunkingConfiguration
+###  http://purl.org/mrrobson9/rag##ChunkingConfiguration
 :ChunkingConfiguration rdf:type owl:NamedIndividual ,
                                 gufo:Kind .
 
 
-###  http://purl.org/rag-onto#ChunkingExec
+###  http://purl.org/mrrobson9/rag##ChunkingExec
 :ChunkingExec rdf:type owl:NamedIndividual ,
                        gufo:EventType .
 
 
-###  http://purl.org/rag-onto#Citation
+###  http://purl.org/mrrobson9/rag##Citation
 :Citation rdf:type owl:NamedIndividual ,
                    gufo:Kind .
 
 
-###  http://purl.org/rag-onto#ConfidentialLevel
+###  http://purl.org/mrrobson9/rag##ConfidentialLevel
 :ConfidentialLevel rdf:type owl:NamedIndividual ,
                             gufo:Kind .
 
 
-###  http://purl.org/rag-onto#Document
+###  http://purl.org/mrrobson9/rag##Document
 :Document rdf:type owl:NamedIndividual ,
                    gufo:Kind .
 
 
-###  http://purl.org/rag-onto#EmbeddingConfiguration
+###  http://purl.org/mrrobson9/rag##EmbeddingConfiguration
 :EmbeddingConfiguration rdf:type owl:NamedIndividual ,
                                  gufo:Kind .
 
 
-###  http://purl.org/rag-onto#EmbeddingExec
+###  http://purl.org/mrrobson9/rag##EmbeddingExec
 :EmbeddingExec rdf:type owl:NamedIndividual ,
                         gufo:EventType .
 
 
-###  http://purl.org/rag-onto#EmbeddingModel
+###  http://purl.org/mrrobson9/rag##EmbeddingModel
 :EmbeddingModel rdf:type owl:NamedIndividual ,
                          gufo:Kind .
 
 
-###  http://purl.org/rag-onto#EmbeddingVector
+###  http://purl.org/mrrobson9/rag##EmbeddingVector
 :EmbeddingVector rdf:type owl:NamedIndividual ,
                           gufo:Kind .
 
 
-###  http://purl.org/rag-onto#FilterPolicy
+###  http://purl.org/mrrobson9/rag##FilterPolicy
 :FilterPolicy rdf:type owl:NamedIndividual ,
                        gufo:Kind .
 
 
-###  http://purl.org/rag-onto#FindingType
+###  http://purl.org/mrrobson9/rag##FindingType
 :FindingType rdf:type owl:NamedIndividual ,
                       gufo:Kind .
 
 
-###  http://purl.org/rag-onto#GeneratedAnswer
+###  http://purl.org/mrrobson9/rag##GeneratedAnswer
 :GeneratedAnswer rdf:type owl:NamedIndividual ,
                           gufo:Kind .
 
 
-###  http://purl.org/rag-onto#GenerationConfig
+###  http://purl.org/mrrobson9/rag##GenerationConfig
 :GenerationConfig rdf:type owl:NamedIndividual ,
                            gufo:Kind .
 
 
-###  http://purl.org/rag-onto#IndexingRun
+###  http://purl.org/mrrobson9/rag##IndexingRun
 :IndexingRun rdf:type owl:NamedIndividual ,
                       gufo:EventType .
 
 
-###  http://purl.org/rag-onto#LLMCall
+###  http://purl.org/mrrobson9/rag##LLMCall
 :LLMCall rdf:type owl:NamedIndividual ,
                   gufo:EventType .
 
 
-###  http://purl.org/rag-onto#ModelRelease
+###  http://purl.org/mrrobson9/rag##ModelRelease
 :ModelRelease rdf:type owl:NamedIndividual ,
                        gufo:Kind .
 
 
-###  http://purl.org/rag-onto#Prompt
+###  http://purl.org/mrrobson9/rag##Prompt
 :Prompt rdf:type owl:NamedIndividual ,
                  gufo:Kind .
 
 
-###  http://purl.org/rag-onto#RerankerConfig
+###  http://purl.org/mrrobson9/rag##RerankerConfig
 :RerankerConfig rdf:type owl:NamedIndividual ,
                          gufo:Kind .
 
 
-###  http://purl.org/rag-onto#RerankingExec
+###  http://purl.org/mrrobson9/rag##RerankingExec
 :RerankingExec rdf:type owl:NamedIndividual ,
                         gufo:EventType .
 
 
-###  http://purl.org/rag-onto#RetrievalConfig
+###  http://purl.org/mrrobson9/rag##RetrievalConfig
 :RetrievalConfig rdf:type owl:NamedIndividual ,
                           gufo:Kind .
 
 
-###  http://purl.org/rag-onto#RetrievalExec
+###  http://purl.org/mrrobson9/rag##RetrievalExec
 :RetrievalExec rdf:type owl:NamedIndividual ,
                         gufo:EventType .
 
 
-###  http://purl.org/rag-onto#RetrievedChunk
+###  http://purl.org/mrrobson9/rag##RetrievedChunk
 :RetrievedChunk rdf:type owl:NamedIndividual ,
                          gufo:Kind .
 
 
-###  http://purl.org/rag-onto#RetrievedContext
+###  http://purl.org/mrrobson9/rag##RetrievedContext
 :RetrievedContext rdf:type owl:NamedIndividual ,
                            gufo:Kind .
 
 
-###  http://purl.org/rag-onto#UserQuery
+###  http://purl.org/mrrobson9/rag##UserQuery
 :UserQuery rdf:type owl:NamedIndividual ,
                     gufo:Kind .
 
 
-###  http://purl.org/rag-onto#ValidationExec
+###  http://purl.org/mrrobson9/rag##ValidationExec
 :ValidationExec rdf:type owl:NamedIndividual ,
                          gufo:EventType .
 
 
-###  http://purl.org/rag-onto#ValidationFinding
+###  http://purl.org/mrrobson9/rag##ValidationFinding
 :ValidationFinding rdf:type owl:NamedIndividual ,
                             gufo:Kind .
 
 
-###  http://purl.org/rag-onto#VectorStore
+###  http://purl.org/mrrobson9/rag##VectorStore
 :VectorStore rdf:type owl:NamedIndividual ,
                       gufo:Kind .
 
